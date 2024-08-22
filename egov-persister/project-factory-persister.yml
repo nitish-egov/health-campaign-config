@@ -227,7 +227,7 @@ serviceMaps:
       fromTopic: update-process-track
       isTransaction: true
       queryMaps:
-        - query: UPDATE health.eg_cm_campaign_process SET campaignId = ?, "type" = ?, "status" = ?,details = ?,createdtime = ?,lastmodifiedtime = ?,additionaldetails = ? WHERE id = ?;
+        - query: UPDATE eg_cm_campaign_process SET campaignId = ?, "type" = ?, "status" = ?,details = ?,createdtime = ?,lastmodifiedtime = ?,additionaldetails = ? WHERE id = ?;
           basePath: $.processDetails
           jsonMaps:
             - jsonPath: $.processDetails.campaignId
