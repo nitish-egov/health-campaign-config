@@ -688,7 +688,7 @@ serviceMaps:
       fromTopic: update-project-date
       isTransaction: true
       queryMaps:
-        - query: UPDATE health.project SET startDate = ?, endDate = ?, additionalDetails = ?, lastModifiedBy = ?, lastModifiedTime = ? WHERE id = ?;
+        - query: UPDATE project SET startDate = ?, endDate = ?, additionalDetails = ?, lastModifiedBy = ?, lastModifiedTime = ? WHERE id = ?;
           basePath: $.Projects.*
           jsonMaps:
             - jsonPath: $.Projects.*.startDate
