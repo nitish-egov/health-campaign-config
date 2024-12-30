@@ -194,7 +194,7 @@ serviceMaps:
       fromTopic: save-process-track
       isTransaction: true
       queryMaps:
-        - query: INSERT INTO health.eg_cm_campaign_process(id, campaignId, "type","status",details,createdtime, lastmodifiedtime,additionaldetails) VALUES (?,?,?,?,?,?,?,?);
+        - query: INSERT INTO eg_cm_campaign_process(id, campaignId, "type","status",details,createdtime, lastmodifiedtime,additionaldetails) VALUES (?,?,?,?,?,?,?,?);
           basePath: processDetails.*
           jsonMaps:
             - jsonPath: $.processDetails.*.id
@@ -216,7 +216,7 @@ serviceMaps:
       fromTopic: update-process-track
       isTransaction: true
       queryMaps:
-        - query: UPDATE health.eg_cm_campaign_process SET campaignId = ?, "type" = ?, "status" = ?,details = ?,createdtime = ?,lastmodifiedtime = ?,additionaldetails = ? WHERE id = ?;
+        - query: UPDATE eg_cm_campaign_process SET campaignId = ?, "type" = ?, "status" = ?,details = ?,createdtime = ?,lastmodifiedtime = ?,additionaldetails = ? WHERE id = ?;
           basePath: $.processDetails
           jsonMaps:
             - jsonPath: $.processDetails.campaignId
