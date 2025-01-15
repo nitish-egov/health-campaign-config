@@ -13804,7 +13804,7 @@
                   "id": "checklistCompletionRateOfDistrictSupervisor",
                   "name": "DSS_HEALTH_SUPERVISION_DISTRICT_SUPERVISORS_CHECKLISTS_COMPLETION_RATE",
                   "code": "",
-                  "moduleName": "irs",
+                  "moduleName": "smc",
                   "pageName": "checklists-fill-national",
                   "chartType": "kibanaComponent",
                   "filter": "",
@@ -16985,10 +16985,10 @@
               "charts": [
                 {
                   "id": "checklistCompletionRateOfDistrictSupervisor",
-                  "name": "DSS_HEALTH_SUPERVISION_DISTRICT_SUPERVISORS_CHECKLISTS_COMPLETION_RATE",
+                  "name": "DASHBOARD_ADMINISTRATION_SUCCESSFUL",
                   "code": "",
                   "moduleName": "irs",
-                  "pageName": "spray-successful-national",
+                  "pageName": "administration-successful-national",
                   "chartType": "kibanaComponent",
                   "filter": "",
                   "headers": []
@@ -17011,10 +17011,10 @@
               "charts": [
                 {
                   "id": "checklistCompletionRateOfDistrictSupervisor",
-                  "name": "DSS_HEALTH_SUPERVISION_DISTRICT_SUPERVISORS_CHECKLISTS_COMPLETION_RATE",
+                  "name": "DASHBOARD_ADMINISTRATION_UNSUCCESSFUL",
                   "code": "",
                   "moduleName": "irs",
-                  "pageName": "spray-unsuccessful-national",
+                  "pageName": "administration-unsuccessful-national",
                   "chartType": "kibanaComponent",
                   "filter": "",
                   "headers": []
@@ -17037,9 +17037,9 @@
               "charts": [
                 {
                   "id": "checklistCompletionRateOfDistrictSupervisor",
-                  "name": "DSS_HEALTH_SUPERVISION_DISTRICT_SUPERVISORS_CHECKLISTS_COMPLETION_RATE",
+                  "name": "DASHBOARD_CHECKLISTS_FILL",
                   "code": "",
-                  "moduleName": "irs",
+                  "moduleName": "SMC",
                   "pageName": "checklists-fill-national",
                   "chartType": "kibanaComponent",
                   "filter": "",
