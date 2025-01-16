@@ -10,15 +10,15 @@
       "dashboards": [
         {
           "name": "National Health Dashboard",
-          "id": "national-health-dashboard"
+          "id": "national-health-dashboard-smc"
         },
         {
           "name": "Provincial Health Dashboard",
-          "id": "provincial-health-dashboard"
+          "id": "provincial-health-dashboard-smc"
         },
         {
           "name": "District Health Dashboard",
-          "id": "district-health-dashboard"
+          "id": "district-health-dashboard-smc"
         },
         {
           "name": "National Health Dashboard IRS",
@@ -55,11 +55,11 @@
       "dashboards": [
         {
           "name": "Provincial Health Dashboard",
-          "id": "provincial-health-dashboard"
+          "id": "provincial-health-dashboard-smc"
         },
         {
           "name": "District Health Dashboard",
-          "id": "district-health-dashboard"
+          "id": "district-health-dashboard-smc"
         },
         {
           "name": "Provincial Health Dashboard IRS",
@@ -88,7 +88,7 @@
       "dashboards": [
         {
           "name": "District Health Dashboard",
-          "id": "district-health-dashboard"
+          "id": "district-health-dashboard-smc"
         },
         {
           "name": "District Health Dashboard IRS",
