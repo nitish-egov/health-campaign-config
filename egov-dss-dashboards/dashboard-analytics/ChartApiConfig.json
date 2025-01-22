@@ -31572,5 +31572,252 @@
       "isRoundOff": true
     },
     "_comment": " PQM Number of total alerts of lab result"
+  },
+  "totalHouseholdSprayed" : {
+    "chartName" : "DSS_TOTAL_HOUSEHOLD_SPRAYED",
+    "queries" : [
+      {
+        "module": "COMMON",
+        "dateRefField": "Data.createdTime",
+        "requestQueryMap": "{\"uuid\":\"Data.createdBy.keyword\",\"cycle\":\"Data.additionalDetails.cycleIndex\"}",
+        "indexName": "project-task-index-v1",
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"totalHouseholdSprayed\":{\"value_count\":{\"field\":\"Data.id.keyword\"}}},\"query\":{\"match\":{\"Data.status\":\"ADMINISTERED_SUCCESS\"}}}"
+      }
+    ],
+    "chartType": "metric",
+    "valueType": "number",
+    "action": "",
+    "isRoundOff": false,
+    "aggregationPaths": [
+      "totalHouseholdSprayed"
+    ],
+    "drillChart": "none",
+    "insight": {
+      "chartResponseMap": "totalHouseholdSprayed",
+      "action": "differenceOfNumbers",
+      "upwardIndicator": "positive",
+      "downwardIndicator": "negative",
+      "textMessage": "$indicator$value% than last $insightInterval",
+      "colorCode": "#228B22",
+      "insightInterval": "day",
+      "isRoundOff": true
+    },
+    "_comment": ""
+  },
+  "totalBottlesUsed" : {
+    "chartName" : "DSS_TOTAL_BOTTLES_USED",
+    "queries" : [
+      {
+        "module": "COMMON",
+        "dateRefField": "Data.createdTime",
+        "requestQueryMap": "{\"uuid\":\"Data.createdBy.keyword\",\"cycle\":\"Data.additionalDetails.cycleIndex\"}",
+        "indexName": "project-task-index-v1",
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"totalBottlesUsed\":{\"sum\":{\"field\":\"Data.quantity\"}}}}"
+      }
+    ],
+    "chartType": "metric",
+    "valueType": "number",
+    "action": "",
+    "isRoundOff": false,
+    "aggregationPaths": [
+      "totalBottlesUsed"
+    ],
+    "drillChart": "none",
+    "insight": {
+      "chartResponseMap": "totalBottlesUsed",
+      "action": "differenceOfNumbers",
+      "upwardIndicator": "positive",
+      "downwardIndicator": "negative",
+      "textMessage": "$indicator$value% than last $insightInterval",
+      "colorCode": "#228B22",
+      "insightInterval": "day",
+      "isRoundOff": true
+    },
+    "_comment": ""
+  },
+  "percentTargetAchievementToday" : {
+    "chartName" : "DSS_PERCENT_TARGET_ACHIEVEMENT_TODAY",
+    "queries" : [
+      {
+        "module": "COMMON",
+        "dateRefField": "Data.createdTime",
+        "requestQueryMap": "{\"uuid\":\"Data.createdBy.keyword\",\"cycle\":\"Data.additionalDetails.cycleIndex\"}",
+        "indexName": "project-task-index-v1",
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"totalHouseholdSprayed\":{\"value_count\":{\"field\":\"Data.id.keyword\"}}},\"query\":{\"match\":{\"Data.status.keyword\":\"ADMINISTRATION_SUCCESS\"}}}"
+      },
+      {
+        "module": "COMMON",
+        "dateRefField": "Data.createdTime",
+        "requestQueryMap": "{\"projectId\":\"Data.projectId.keyword\"}",
+        "indexName": "project-index-v1",
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"targetPerDay\":{\"sum\":{\"field\":\"Data.targetPerDay\"}}}}"
+      }
+    ],
+    "chartType": "metric",
+    "valueType": "percentage",
+    "action": "percentage",
+    "drillChart": "none",
+    "aggregationPaths": [
+      "totalHouseholdSprayed",
+      "targetPerDay"
+    ],
+    "insight": {
+      "chartResponseMap": "percentTargetAchievementToday",
+      "action": "differenceOfNumbers",
+      "upwardIndicator": "positive",
+      "downwardIndicator": "negative",
+      "textMessage": "$indicator$value% than last $insightInterval",
+      "colorCode": "#228B22",
+      "insightInterval": "dateRange"
+    },
+    "_comment" : ""
+  },
+  "coverageByUser":{
+    "chartName": "DSS_HEALTH_IRS_COVERAGE_BY_USER",
+    "queries": [
+      {
+        "module": "COMMON",
+        "dateRefField": "Data.createdTime",
+        "requestQueryMap": "{\"uuid\":\"Data.createdBy.keyword\",\"cycle\":\"Data.additionalDetails.cycleIndex\"}",
+        "indexName": "project-task-index-v1",
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"User Name\":{\"terms\":{\"field\":\"Data.nameOfUser.keyword\"},\"aggs\":{\"HouseholdsVisited\":{\"value_count\":{\"field\":\"Data.id.keyword\"}}}}}}"
+      },
+      {
+        "module": "COMMON",
+        "dateRefField": "Data.createdTime",
+        "requestQueryMap": "{\"uuid\":\"Data.createdBy.keyword\",\"cycle\":\"Data.additionalDetails.cycleIndex\"}",
+        "indexName": "project-task-index-v1",
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"FILTER\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.deliveredTo.keyword\":\"HOUSEHOLD\"}},{\"term\":{\"Data.status.keyword\":\"ADMINISTRATION_SUCCESS\"}}]}},\"aggs\":{\"User Name\":{\"terms\":{\"field\":\"Data.nameOfUser.keyword\"},\"aggs\":{\"HouseholdsSprayed\":{\"value_count\":{\"field\":\"Data.id.keyword\"}},\"NegativeHouseholdsSprayed\":{\"bucket_script\":{\"buckets_path\":{\"count\":\"HouseholdsSprayed\"},\"script\":\"params.count*-1\"}}}}}}}}"
+      },
+      {
+        "module": "COMMON",
+        "dateRefField": "Data.createdTime",
+        "requestQueryMap": "{\"uuid\":\"Data.createdBy.keyword\",\"cycle\":\"Data.additionalDetails.cycleIndex\"}",
+        "indexName": "project-task-index-v1",
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"FILTER\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.deliveredTo.keyword\":\"HOUSEHOLD\"}},{\"term\":{\"Data.status.keyword\":\"ADMINISTRATION_SUCCESS\"}}]}},\"aggs\":{\"UserName\":{\"terms\":{\"field\":\"Data.nameOfUser.keyword\"},\"aggs\":{\"BottlesUsedToday\":{\"sum\":{\"field\":\"Data.quantity\"}},\"NegativeBottlesUsedToday\":{\"bucket_script\":{\"buckets_path\":{\"count\":\"BottlesUsedToday\"},\"script\":\"params.count*-1\"}}}}}}}}"
+      },
+      {
+        "module": "COMMON",
+        "dateRefField": "Data.createdTime",
+        "requestQueryMap": "{\"uuid\":\"Data.createdBy.keyword\"}",
+        "indexName": "stock-index-v1",
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"FILTER\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.facilityType.keyword\":\"STAFF\"}},{\"term\":{\"Data.eventType.keyword\":\"RECEIVED\"}}]}},\"aggs\":{\"User Name\":{\"terms\":{\"field\":\"Data.nameOfUser.keyword\"},\"aggs\":{\"Stock count per user\":{\"sum\":{\"field\":\"Data.physicalCount\"}}}}}}}}"
+      },
+      {
+        "module": "COMMON",
+        "dateRefField": "Data.createdTime",
+        "requestQueryMap": "{\"uuid\":\"Data.syncedUserId.keyword\"}",
+        "indexName": "user-sync-index-v1",
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"User Name\":{\"terms\":{\"field\":\"Data.syncedNameOfUser.keyword\"},\"aggs\":{\"Lastsyncedtime\":{\"max\":{\"field\":\"Data.syncedTimeStamp\"}}}}}}"
+      }
+    ],
+    "filterKeys": [],
+    "chartType": "xtable",
+    "valueType": "number",
+    "drillChart": "none",
+    "documentType": "_doc",
+    "action": "",
+    "plotLabel" : "User Name",
+    "excludedColumns": [
+      "NegativeHouseholdsSprayed", 
+      "NegativeBottlesUsedToday", 
+      "HouseholdsVisited", 
+      "HouseholdsSprayed", 
+      "BottlesUsedToday", 
+      "Stock count per user", 
+      "Lastsyncedtime"
+    ],
+    "computedFields" : [
+      {
+        "postAggregationTheory" : "",
+        "actionName": "AdditiveComputedField",
+        "fields" : ["HouseholdsVisited"],
+        "newField" : "No. of houses visited today",
+        "_comments": ""
+      },
+      {
+        "postAggregationTheory" :"",
+        "actionName": "AdditiveComputedField",
+        "fields" : ["HouseholdsSprayed"],
+        "newField" : "No. of houses sprayed today",
+        "_comments": ""
+      },
+      {
+        "postAggregationTheory" : "",
+        "actionName": "AdditiveComputedField",
+        "fields" : ["HouseholdsVisited","NegativeHouseholdsSprayed"],
+        "newField" : "No. of houses not sprayed today",
+        "_comments": ""
+      },
+      {
+        "postAggregationTheory" :"",
+        "actionName": "AdditiveComputedField",
+        "fields" : ["BottlesUsedToday"],
+        "newField" : "Bottles used today",
+        "_comments": ""
+      },
+      {
+        "postAggregationTheory" : "",
+        "actionName": "AdditiveComputedField",
+        "fields" : ["Stock count per user","NegativeBottlesUsedToday"],
+        "newField" : "No. of remaining bottles",
+        "_comments": ""
+      },
+      {
+        "postAggregationTheory" :"",
+        "actionName": "AdditiveComputedField",
+        "fields" : ["Lastsyncedtime"],
+        "newField" : "Last synced time",
+        "_comments": ""
+      }
+    ],
+    "insight": {
+    },
+    "sort": "sortKeyAsc",
+    "hideInsights": true,
+    "hideHeaderDenomination": true,
+    "_comment": " "
+  },
+  "performanceByUser" : {
+    "chartName": "DSS_HEALTH_IRS_PERFORMANCE_BY_USER",
+    "queries" : [
+      {
+        "module": "COMMON",
+        "dateRefField": "Data.createdTime",
+        "requestQueryMap": "{\"uuid\":\"Data.createdBy.keyword\",\"cycle\":\"Data.additionalDetails.cycleIndex\"}",
+        "indexName": "project-task-index-v1",
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"FILTER\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.status.keyword\":\"ADMINISTRATION_SUCCESS\"}}]}},\"aggs\":{\"User Name\":{\"terms\":{\"field\":\"Data.nameOfUser.keyword\"},\"aggs\":{\"Total houses sprayed\":{\"value_count\":{\"field\":\"Data.id.keyword\"}}}}}}}}"
+      },
+      {
+        "module": "COMMON",
+        "dateRefField": "Data.createdTime",
+        "requestQueryMap": "{\"uuid\":\"Data.createdBy.keyword\",\"cycle\":\"Data.additionalDetails.cycleIndex\"}",
+        "indexName": "project-task-index-v1",
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"User Name\":{\"terms\":{\"field\":\"Data.nameOfUser.keyword\"},\"aggs\":{\"Totalhousesvisited\":{\"value_count\":{\"field\":\"Data.id.keyword\"}}}}}}"
+      }
+    ],
+    "filterKeys": [],
+    "chartType": "xtable",
+    "valueType": "number",
+    "drillChart": "none",
+    "documentType": "_doc",
+    "action": "",
+    "plotLabel" : "User Name",
+    "excludedColumns": ["Total houses sprayed" ,"Totalhousesvisited"],
+    "computedFields" : [
+      {
+        "postAggregationTheory" : "",
+        "actionName": "PercentageComputedField",
+        "fields" : ["Total houses sprayed","Totalhousesvisited"],
+        "newField" : "House coverage ratio",
+        "_comments": ""
+      }
+    ],
+    "insight": {
+    },
+    "sort": "sortKeyAsc",
+    "hideInsights": true,
+    "hideHeaderDenomination": true,
+    "_comment": " "
   }
 }
