@@ -729,32 +729,6 @@
           "name": "DSS_KIBANA_MAPS",
           "vizArray": [
             {
-              "id": 411,
-              "name": "DSS_HEALTH_KIBANA_SCREEN",
-              "label": "DSS_HEALTH_KIBANA_SCREEN",
-              "vizType": "chart",
-              "noUnit": true,
-              "isCollapsible": false,
-              "charts": [
-                {
-                  "id": "checklistCompletionRateOfDistrictSupervisor",
-                  "name": "DSS_HEALTH_SUPERVISION_DISTRICT_SUPERVISORS_CHECKLISTS_COMPLETION_RATE",
-                  "code": "",
-                  "moduleName": "llin",
-                  "pageName": "administration-unsuccessful-national",
-                  "chartType": "kibanaComponent",
-                  "filter": "",
-                  "headers": []
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "row": 3,
-          "name": "DSS_KIBANA_MAPS",
-          "vizArray": [
-            {
               "id": 412,
               "name": "DSS_HEALTH_KIBANA_SCREEN",
               "label": "DSS_HEALTH_KIBANA_SCREEN",
@@ -1738,32 +1712,6 @@
         },
         {
           "row": 2,
-          "name": "DSS_KIBANA_MAPS",
-          "vizArray": [
-            {
-              "id": 411,
-              "name": "DSS_HEALTH_KIBANA_SCREEN",
-              "label": "DSS_HEALTH_KIBANA_SCREEN",
-              "vizType": "chart",
-              "noUnit": true,
-              "isCollapsible": false,
-              "charts": [
-                {
-                  "id": "checklistCompletionRateOfDistrictSupervisor",
-                  "name": "DSS_HEALTH_SUPERVISION_DISTRICT_SUPERVISORS_CHECKLISTS_COMPLETION_RATE",
-                  "code": "",
-                  "moduleName": "llin",
-                  "pageName": "administration-unsuccessful-national",
-                  "chartType": "kibanaComponent",
-                  "filter": "",
-                  "headers": []
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "row": 3,
           "name": "DSS_KIBANA_MAPS",
           "vizArray": [
             {
