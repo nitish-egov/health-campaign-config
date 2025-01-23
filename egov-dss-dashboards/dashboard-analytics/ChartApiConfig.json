@@ -7,14 +7,14 @@
         "dateRefField": "",
         "requestQueryMap": "{\"projectTypeId\":\"Data.projectTypeId.keyword\",\"province\":\"Data.boundaryHierarchy.province.keyword\",\"district\":\"Data.boundaryHierarchy.district.keyword\"}",
         "indexName": "project-task-index-v1",
-        "aggrQuery": "{\"size\":0,\"aggs\":{\"AGGS\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.deliveredTo.keyword\":\"HOUSEHOLD\"}},{\"match_phrase\":{\"Data.productVariant\":\"PVAR\"}},{\"term\":{\"Data.isDelivered\":true}}]}},\"aggs\":{\"Bednets Distribution\":{\"date_histogram\":{\"field\":\"Data.createdTime\",\"interval\":\"day\",\"min_doc_count\":1},\"aggs\":{\"Day wise distributions\":{\"sum\":{\"field\":\"Data.quantity\"}}}}}}}}"
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"AGGS\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.deliveredTo.keyword\":\"HOUSEHOLD\"}},{\"match_phrase\":{\"Data.productVariant\":\"PVAR\"}},{\"term\":{\"Data.isDelivered\":true}}]}},\"aggs\":{\"Bednets Distribution\":{\"date_histogram\":{\"field\":\"Data.createdTime\",\"calender_interval\":\"day\",\"min_doc_count\":1},\"aggs\":{\"Day wise distributions\":{\"sum\":{\"field\":\"Data.quantity\"}}}}}}}}"
       },
       {
         "module": "COMMON",
         "dateRefField": "",
         "requestQueryMap": "{\"projectTypeId\":\"Data.projectTypeId.keyword\",\"province\":\"Data.boundaryHierarchy.province.keyword\",\"district\":\"Data.boundaryHierarchy.district.keyword\"}",
         "indexName": "project-index-v1",
-        "aggrQuery": "{\"size\":0,\"aggs\":{\"chartSpecificProperty\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.targetType.keyword\":\"PRODUCT\"}},{\"match_phrase\":{\"Data.productVariant\":\"PVAR\"}},{\"exists\":{\"field\":\"Data.boundaryHierarchy.province.keyword\"}},{\"exists\":{\"field\":\"Data.boundaryHierarchy.district.keyword\"}}],\"must_not\":[{\"exists\":{\"field\":\"Data.boundaryHierarchy.administrativeProvince.keyword\"}}]}},\"aggs\":{\"startDate\":{\"terms\":{\"field\":\"Data.startDate\"}},\"endDate\":{\"terms\":{\"field\":\"Data.endDate\"}},\"Bednets Target\":{\"date_histogram\":{\"field\":\"Data.startDate\",\"interval\":\"day\"},\"aggs\":{\"Target\":{\"sum\":{\"field\":\"Data.targetPerDay\"}}}},\"Overall Target\":{\"sum\":{\"field\":\"Data.overallTarget\"}}}}}}"
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"chartSpecificProperty\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.targetType.keyword\":\"PRODUCT\"}},{\"match_phrase\":{\"Data.productVariant\":\"PVAR\"}},{\"exists\":{\"field\":\"Data.boundaryHierarchy.province.keyword\"}},{\"exists\":{\"field\":\"Data.boundaryHierarchy.district.keyword\"}}],\"must_not\":[{\"exists\":{\"field\":\"Data.boundaryHierarchy.administrativeProvince.keyword\"}}]}},\"aggs\":{\"startDate\":{\"terms\":{\"field\":\"Data.startDate\"}},\"endDate\":{\"terms\":{\"field\":\"Data.endDate\"}},\"Bednets Target\":{\"date_histogram\":{\"field\":\"Data.startDate\",\"calender_interval\":\"day\"},\"aggs\":{\"Target\":{\"sum\":{\"field\":\"Data.targetPerDay\"}}}},\"Overall Target\":{\"sum\":{\"field\":\"Data.overallTarget\"}}}}}}"
       }
     ],
     "chartType": "line",
@@ -42,14 +42,14 @@
         "dateRefField": "",
         "requestQueryMap": "{\"projectTypeId\":\"Data.projectTypeId.keyword\",\"province\":\"Data.boundaryHierarchy.province.keyword\",\"district\":\"Data.boundaryHierarchy.district.keyword\"}",
         "indexName": "project-task-index-v1",
-        "aggrQuery": "{\"size\":0,\"aggs\":{\"AGGS\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.deliveredTo.keyword\":\"HOUSEHOLD\"}},{\"match_phrase\":{\"Data.productVariant\":\"PVAR\"}},{\"term\":{\"Data.isDelivered\":true}}]}},\"aggs\":{\"Bednets Distribution\":{\"date_histogram\":{\"field\":\"Data.createdTime\",\"interval\":\"day\",\"min_doc_count\":1},\"aggs\":{\"Day wise distributions\":{\"sum\":{\"field\":\"Data.quantity\"}}}}}}}}"
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"AGGS\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.deliveredTo.keyword\":\"HOUSEHOLD\"}},{\"match_phrase\":{\"Data.productVariant\":\"PVAR\"}},{\"term\":{\"Data.isDelivered\":true}}]}},\"aggs\":{\"Bednets Distribution\":{\"date_histogram\":{\"field\":\"Data.createdTime\",\"calender_interval\":\"day\",\"min_doc_count\":1},\"aggs\":{\"Day wise distributions\":{\"sum\":{\"field\":\"Data.quantity\"}}}}}}}}"
       },
       {
         "module": "COMMON",
         "dateRefField": "",
         "requestQueryMap": "{\"projectTypeId\":\"Data.projectTypeId.keyword\",\"province\":\"Data.boundaryHierarchy.province.keyword\",\"district\":\"Data.boundaryHierarchy.district.keyword\"}",
         "indexName": "project-index-v1",
-        "aggrQuery": "{\"size\":0,\"aggs\":{\"chartSpecificProperty\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.targetType.keyword\":\"PRODUCT\"}},{\"match_phrase\":{\"Data.productVariant\":\"PVAR\"}},{\"exists\":{\"field\":\"Data.boundaryHierarchy.province.keyword\"}}],\"must_not\":[{\"exists\":{\"field\":\"Data.boundaryHierarchy.district.keyword\"}}]}},\"aggs\":{\"startDate\":{\"terms\":{\"field\":\"Data.startDate\"}},\"endDate\":{\"terms\":{\"field\":\"Data.endDate\"}},\"Bednets Target\":{\"date_histogram\":{\"field\":\"Data.startDate\",\"interval\":\"day\"},\"aggs\":{\"Target\":{\"sum\":{\"field\":\"Data.targetPerDay\"}}}},\"Overall Target\":{\"sum\":{\"field\":\"Data.overallTarget\"}}}}}}"
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"chartSpecificProperty\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.targetType.keyword\":\"PRODUCT\"}},{\"match_phrase\":{\"Data.productVariant\":\"PVAR\"}},{\"exists\":{\"field\":\"Data.boundaryHierarchy.province.keyword\"}}],\"must_not\":[{\"exists\":{\"field\":\"Data.boundaryHierarchy.district.keyword\"}}]}},\"aggs\":{\"startDate\":{\"terms\":{\"field\":\"Data.startDate\"}},\"endDate\":{\"terms\":{\"field\":\"Data.endDate\"}},\"Bednets Target\":{\"date_histogram\":{\"field\":\"Data.startDate\",\"calender_interval\":\"day\"},\"aggs\":{\"Target\":{\"sum\":{\"field\":\"Data.targetPerDay\"}}}},\"Overall Target\":{\"sum\":{\"field\":\"Data.overallTarget\"}}}}}}"
       }
     ],
     "chartType": "line",
@@ -112,14 +112,14 @@
         "dateRefField": "",
         "requestQueryMap": "{\"projectTypeId\":\"Data.projectTypeId.keyword\",\"province\":\"Data.boundaryHierarchy.province.keyword\",\"district\":\"Data.boundaryHierarchy.district.keyword\"}",
         "indexName": "project-task-index-v1",
-        "aggrQuery": "{\"size\":0,\"aggs\":{\"AGGS\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.deliveredTo.keyword\":\"HOUSEHOLD\"}},{\"match_phrase\":{\"Data.productVariant\":\"PVAR\"}},{\"term\":{\"Data.isDelivered\":true}}]}},\"aggs\":{\"Household Distribution\":{\"date_histogram\":{\"field\":\"Data.createdTime\",\"interval\":\"day\",\"min_doc_count\":1},\"aggs\":{\"Day wise distributions\":{\"value_count\":{\"field\":\"Data.id.keyword\"}}}}}}}}"
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"AGGS\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.deliveredTo.keyword\":\"HOUSEHOLD\"}},{\"match_phrase\":{\"Data.productVariant\":\"PVAR\"}},{\"term\":{\"Data.isDelivered\":true}}]}},\"aggs\":{\"Household Distribution\":{\"date_histogram\":{\"field\":\"Data.createdTime\",\"calender_interval\":\"day\",\"min_doc_count\":1},\"aggs\":{\"Day wise distributions\":{\"value_count\":{\"field\":\"Data.id.keyword\"}}}}}}}}"
       },
       {
         "module": "COMMON",
         "dateRefField": "",
         "requestQueryMap": "{\"projectTypeId\":\"Data.projectTypeId.keyword\",\"province\":\"Data.boundaryHierarchy.province.keyword\",\"district\":\"Data.boundaryHierarchy.district.keyword\"}",
         "indexName": "project-index-v1",
-        "aggrQuery": "{\"size\":0,\"aggs\":{\"chartSpecificProperty\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.targetType.keyword\":\"HOUSEHOLD\"}},{\"match_phrase\":{\"Data.productVariant\":\"PVAR\"}},{\"exists\":{\"field\":\"Data.boundaryHierarchy.province.keyword\"}},{\"exists\":{\"field\":\"Data.boundaryHierarchy.district.keyword\"}}],\"must_not\":[{\"exists\":{\"field\":\"Data.boundaryHierarchy.administrativeProvince.keyword\"}}]}},\"aggs\":{\"startDate\":{\"terms\":{\"field\":\"Data.startDate\"}},\"endDate\":{\"terms\":{\"field\":\"Data.endDate\"}},\"Household Target\":{\"date_histogram\":{\"field\":\"Data.startDate\",\"interval\":\"day\"},\"aggs\":{\"Target Household\":{\"sum\":{\"field\":\"Data.targetPerDay\"}}}},\"Overall Target\":{\"sum\":{\"field\":\"Data.overallTarget\"}}}}}}"
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"chartSpecificProperty\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.targetType.keyword\":\"HOUSEHOLD\"}},{\"match_phrase\":{\"Data.productVariant\":\"PVAR\"}},{\"exists\":{\"field\":\"Data.boundaryHierarchy.province.keyword\"}},{\"exists\":{\"field\":\"Data.boundaryHierarchy.district.keyword\"}}],\"must_not\":[{\"exists\":{\"field\":\"Data.boundaryHierarchy.administrativeProvince.keyword\"}}]}},\"aggs\":{\"startDate\":{\"terms\":{\"field\":\"Data.startDate\"}},\"endDate\":{\"terms\":{\"field\":\"Data.endDate\"}},\"Household Target\":{\"date_histogram\":{\"field\":\"Data.startDate\",\"calender_interval\":\"day\"},\"aggs\":{\"Target Household\":{\"sum\":{\"field\":\"Data.targetPerDay\"}}}},\"Overall Target\":{\"sum\":{\"field\":\"Data.overallTarget\"}}}}}}"
       }
     ],
     "chartType": "line",
@@ -217,14 +217,14 @@
         "dateRefField": "",
         "requestQueryMap": "{\"projectTypeId\":\"Data.projectTypeId.keyword\",\"province\":\"Data.boundaryHierarchy.province.keyword\",\"district\":\"Data.boundaryHierarchy.district.keyword\"}",
         "indexName": "project-task-index-v1",
-        "aggrQuery": "{\"size\":0,\"aggs\":{\"AGGS\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.deliveredTo.keyword\":\"HOUSEHOLD\"}},{\"match_phrase\":{\"Data.productVariant\":\"PVAR\"}},{\"term\":{\"Data.isDelivered\":true}}]}},\"aggs\":{\"Household Distribution\":{\"date_histogram\":{\"field\":\"Data.createdTime\",\"interval\":\"day\",\"min_doc_count\":1},\"aggs\":{\"Day wise distributions\":{\"value_count\":{\"field\":\"Data.id.keyword\"}}}}}}}}"
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"AGGS\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.deliveredTo.keyword\":\"HOUSEHOLD\"}},{\"match_phrase\":{\"Data.productVariant\":\"PVAR\"}},{\"term\":{\"Data.isDelivered\":true}}]}},\"aggs\":{\"Household Distribution\":{\"date_histogram\":{\"field\":\"Data.createdTime\",\"calender_interval\":\"day\",\"min_doc_count\":1},\"aggs\":{\"Day wise distributions\":{\"value_count\":{\"field\":\"Data.id.keyword\"}}}}}}}}"
       },
       {
         "module": "COMMON",
         "dateRefField": "",
         "requestQueryMap": "{\"projectTypeId\":\"Data.projectTypeId.keyword\",\"province\":\"Data.boundaryHierarchy.province.keyword\",\"district\":\"Data.boundaryHierarchy.district.keyword\"}",
         "indexName": "project-index-v1",
-        "aggrQuery": "{\"size\":0,\"aggs\":{\"chartSpecificProperty\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.targetType.keyword\":\"HOUSEHOLD\"}},{\"match_phrase\":{\"Data.productVariant\":\"PVAR\"}},{\"exists\":{\"field\":\"Data.boundaryHierarchy.province.keyword\"}}],\"must_not\":[{\"exists\":{\"field\":\"Data.boundaryHierarchy.district.keyword\"}}]}},\"aggs\":{\"startDate\":{\"terms\":{\"field\":\"Data.startDate\"}},\"endDate\":{\"terms\":{\"field\":\"Data.endDate\"}},\"Household Target\":{\"date_histogram\":{\"field\":\"Data.startDate\",\"interval\":\"day\"},\"aggs\":{\"Target Household\":{\"sum\":{\"field\":\"Data.targetPerDay\"}}}},\"Overall Target\":{\"sum\":{\"field\":\"Data.overallTarget\"}}}}}}"
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"chartSpecificProperty\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.targetType.keyword\":\"HOUSEHOLD\"}},{\"match_phrase\":{\"Data.productVariant\":\"PVAR\"}},{\"exists\":{\"field\":\"Data.boundaryHierarchy.province.keyword\"}}],\"must_not\":[{\"exists\":{\"field\":\"Data.boundaryHierarchy.district.keyword\"}}]}},\"aggs\":{\"startDate\":{\"terms\":{\"field\":\"Data.startDate\"}},\"endDate\":{\"terms\":{\"field\":\"Data.endDate\"}},\"Household Target\":{\"date_histogram\":{\"field\":\"Data.startDate\",\"calender_interval\":\"day\"},\"aggs\":{\"Target Household\":{\"sum\":{\"field\":\"Data.targetPerDay\"}}}},\"Overall Target\":{\"sum\":{\"field\":\"Data.overallTarget\"}}}}}}"
       }
     ],
     "chartType": "line",
@@ -322,14 +322,14 @@
         "dateRefField": "",
         "requestQueryMap": "{\"projectTypeId\":\"Data.projectTypeId.keyword\",\"province\":\"Data.boundaryHierarchy.province.keyword\",\"district\":\"Data.boundaryHierarchy.district.keyword\"}",
         "indexName": "project-task-index-v1",
-        "aggrQuery": "{\"size\":0,\"aggs\":{\"AGGS\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.deliveredTo.keyword\":\"HOUSEHOLD\"}},{\"match_phrase\":{\"Data.productVariant\":\"PVAR\"}},{\"term\":{\"Data.isDelivered\":true}}]}},\"aggs\":{\"Population Distribution\":{\"date_histogram\":{\"field\":\"Data.createdTime\",\"interval\":\"day\",\"min_doc_count\":1},\"aggs\":{\"Day wise distributions\":{\"sum\":{\"field\":\"Data.quantity\"}},\"Population distributed\":{\"bucket_script\":{\"buckets_path\":{\"target\":\"Day wise distributions\"},\"script\":\"params.target*1.8\"}}}}}}}}"
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"AGGS\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.deliveredTo.keyword\":\"HOUSEHOLD\"}},{\"match_phrase\":{\"Data.productVariant\":\"PVAR\"}},{\"term\":{\"Data.isDelivered\":true}}]}},\"aggs\":{\"Population Distribution\":{\"date_histogram\":{\"field\":\"Data.createdTime\",\"calender_interval\":\"day\",\"min_doc_count\":1},\"aggs\":{\"Day wise distributions\":{\"sum\":{\"field\":\"Data.quantity\"}},\"Population distributed\":{\"bucket_script\":{\"buckets_path\":{\"target\":\"Day wise distributions\"},\"script\":\"params.target*1.8\"}}}}}}}}"
       },
       {
         "module": "COMMON",
         "dateRefField": "",
         "requestQueryMap": "{\"projectTypeId\":\"Data.projectTypeId.keyword\",\"province\":\"Data.boundaryHierarchy.province.keyword\",\"district\":\"Data.boundaryHierarchy.district.keyword\"}",
         "indexName": "project-index-v1",
-        "aggrQuery": "{\"size\":0,\"aggs\":{\"chartSpecificProperty\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.targetType.keyword\":\"INDIVIDUAL\"}},{\"match_phrase\":{\"Data.productVariant\":\"PVAR\"}},{\"exists\":{\"field\":\"Data.boundaryHierarchy.province.keyword\"}},{\"exists\":{\"field\":\"Data.boundaryHierarchy.district.keyword\"}}],\"must_not\":[{\"exists\":{\"field\":\"Data.boundaryHierarchy.administrativeProvince.keyword\"}}]}},\"aggs\":{\"startDate\":{\"terms\":{\"field\":\"Data.startDate\"}},\"endDate\":{\"terms\":{\"field\":\"Data.endDate\"}},\"Population Target\":{\"date_histogram\":{\"field\":\"Data.startDate\",\"interval\":\"day\"},\"aggs\":{\"Target\":{\"sum\":{\"field\":\"Data.targetPerDay\"}}}},\"Overall Target\":{\"sum\":{\"field\":\"Data.overallTarget\"}}}}}}"
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"chartSpecificProperty\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.targetType.keyword\":\"INDIVIDUAL\"}},{\"match_phrase\":{\"Data.productVariant\":\"PVAR\"}},{\"exists\":{\"field\":\"Data.boundaryHierarchy.province.keyword\"}},{\"exists\":{\"field\":\"Data.boundaryHierarchy.district.keyword\"}}],\"must_not\":[{\"exists\":{\"field\":\"Data.boundaryHierarchy.administrativeProvince.keyword\"}}]}},\"aggs\":{\"startDate\":{\"terms\":{\"field\":\"Data.startDate\"}},\"endDate\":{\"terms\":{\"field\":\"Data.endDate\"}},\"Population Target\":{\"date_histogram\":{\"field\":\"Data.startDate\",\"calender_interval\":\"day\"},\"aggs\":{\"Target\":{\"sum\":{\"field\":\"Data.targetPerDay\"}}}},\"Overall Target\":{\"sum\":{\"field\":\"Data.overallTarget\"}}}}}}"
       }
     ],
     "chartType": "line",
@@ -427,14 +427,14 @@
         "dateRefField": "",
         "requestQueryMap": "{\"projectTypeId\":\"Data.projectTypeId.keyword\",\"province\":\"Data.boundaryHierarchy.province.keyword\",\"district\":\"Data.boundaryHierarchy.district.keyword\"}",
         "indexName": "project-task-index-v1",
-        "aggrQuery": "{\"size\":0,\"aggs\":{\"AGGS\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.deliveredTo.keyword\":\"HOUSEHOLD\"}},{\"match_phrase\":{\"Data.productVariant\":\"PVAR\"}},{\"term\":{\"Data.isDelivered\":true}}]}},\"aggs\":{\"Population Distribution\":{\"date_histogram\":{\"field\":\"Data.createdTime\",\"interval\":\"day\",\"min_doc_count\":1},\"aggs\":{\"Day wise distributions\":{\"sum\":{\"field\":\"Data.quantity\"}},\"Population distributed\":{\"bucket_script\":{\"buckets_path\":{\"target\":\"Day wise distributions\"},\"script\":\"params.target*1.8\"}}}}}}}}"
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"AGGS\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.deliveredTo.keyword\":\"HOUSEHOLD\"}},{\"match_phrase\":{\"Data.productVariant\":\"PVAR\"}},{\"term\":{\"Data.isDelivered\":true}}]}},\"aggs\":{\"Population Distribution\":{\"date_histogram\":{\"field\":\"Data.createdTime\",\"calender_interval\":\"day\",\"min_doc_count\":1},\"aggs\":{\"Day wise distributions\":{\"sum\":{\"field\":\"Data.quantity\"}},\"Population distributed\":{\"bucket_script\":{\"buckets_path\":{\"target\":\"Day wise distributions\"},\"script\":\"params.target*1.8\"}}}}}}}}"
       },
       {
         "module": "COMMON",
         "dateRefField": "",
         "requestQueryMap": "{\"projectTypeId\":\"Data.projectTypeId.keyword\",\"province\":\"Data.boundaryHierarchy.province.keyword\",\"district\":\"Data.boundaryHierarchy.district.keyword\"}",
         "indexName": "project-index-v1",
-        "aggrQuery": "{\"size\":0,\"aggs\":{\"chartSpecificProperty\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.targetType.keyword\":\"INDIVIDUAL\"}},{\"match_phrase\":{\"Data.productVariant\":\"PVAR\"}},{\"exists\":{\"field\":\"Data.boundaryHierarchy.province.keyword\"}}],\"must_not\":[{\"exists\":{\"field\":\"Data.boundaryHierarchy.district.keyword\"}}]}},\"aggs\":{\"startDate\":{\"terms\":{\"field\":\"Data.startDate\"}},\"endDate\":{\"terms\":{\"field\":\"Data.endDate\"}},\"Population Target\":{\"date_histogram\":{\"field\":\"Data.startDate\",\"interval\":\"day\"},\"aggs\":{\"Target\":{\"sum\":{\"field\":\"Data.targetPerDay\"}}}},\"Overall Target\":{\"sum\":{\"field\":\"Data.overallTarget\"}}}}}}"
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"chartSpecificProperty\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.targetType.keyword\":\"INDIVIDUAL\"}},{\"match_phrase\":{\"Data.productVariant\":\"PVAR\"}},{\"exists\":{\"field\":\"Data.boundaryHierarchy.province.keyword\"}}],\"must_not\":[{\"exists\":{\"field\":\"Data.boundaryHierarchy.district.keyword\"}}]}},\"aggs\":{\"startDate\":{\"terms\":{\"field\":\"Data.startDate\"}},\"endDate\":{\"terms\":{\"field\":\"Data.endDate\"}},\"Population Target\":{\"date_histogram\":{\"field\":\"Data.startDate\",\"calender_interval\":\"day\"},\"aggs\":{\"Target\":{\"sum\":{\"field\":\"Data.targetPerDay\"}}}},\"Overall Target\":{\"sum\":{\"field\":\"Data.overallTarget\"}}}}}}"
       }
     ],
     "chartType": "line",
@@ -6552,7 +6552,7 @@
         "dateRefField": "",
         "requestQueryMap": "{\"projectTypeId\":\"Data.projectTypeId.keyword\",\"province\":\"Data.boundaryHierarchy.province.keyword\",\"district\":\"Data.boundaryHierarchy.district.keyword\"}",
         "indexName": "transformer-pgr-services",
-        "aggrQuery": "{\"size\":0,\"aggs\":{\"Open\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.service.applicationStatus.keyword\":\"PENDING_ASSIGNMENT\"}}]}},\"aggs\":{\"Open Complaints\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"interval\":\"day\",\"min_doc_count\":1,\"format\":\"dd MMM yyyy\"},\"aggs\":{\"Open Complaints Count\":{\"value_count\":{\"field\":\"Data.service.auditDetails.lastModifiedTime\"}}}}}},\"Resolved\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.service.applicationStatus.keyword\":\"RESOLVED\"}}]}},\"aggs\":{\"Resolved Complaints\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"interval\":\"day\",\"min_doc_count\":1,\"format\":\"dd MMM yyyy\"},\"aggs\":{\"Resolved Complaints Count\":{\"value_count\":{\"field\":\"Data.service.auditDetails.lastModifiedTime\"}}}}}},\"Rejected\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.service.applicationStatus.keyword\":\"REJECTED\"}}]}},\"aggs\":{\"Rejected Complaints\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"interval\":\"day\",\"min_doc_count\":1,\"format\":\"dd MMM yyyy\"},\"aggs\":{\"Rejected Complaints Count\":{\"value_count\":{\"field\":\"Data.service.auditDetails.lastModifiedTime\"}}}}}}}}"
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"Open\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.service.applicationStatus.keyword\":\"PENDING_ASSIGNMENT\"}}]}},\"aggs\":{\"Open Complaints\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"calender_interval\":\"day\",\"min_doc_count\":1,\"format\":\"dd MMM yyyy\"},\"aggs\":{\"Open Complaints Count\":{\"value_count\":{\"field\":\"Data.service.auditDetails.lastModifiedTime\"}}}}}},\"Resolved\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.service.applicationStatus.keyword\":\"RESOLVED\"}}]}},\"aggs\":{\"Resolved Complaints\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"calender_interval\":\"day\",\"min_doc_count\":1,\"format\":\"dd MMM yyyy\"},\"aggs\":{\"Resolved Complaints Count\":{\"value_count\":{\"field\":\"Data.service.auditDetails.lastModifiedTime\"}}}}}},\"Rejected\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.service.applicationStatus.keyword\":\"REJECTED\"}}]}},\"aggs\":{\"Rejected Complaints\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"calender_interval\":\"day\",\"min_doc_count\":1,\"format\":\"dd MMM yyyy\"},\"aggs\":{\"Rejected Complaints Count\":{\"value_count\":{\"field\":\"Data.service.auditDetails.lastModifiedTime\"}}}}}}}}"
       }
     ],
     "chartType": "xtable",
@@ -20785,21 +20785,21 @@
         "dateRefField": "",
         "requestQueryMap": "{\"projectTypeId\":\"Data.projectTypeId.keyword\",\"province\":\"Data.boundaryHierarchy.province.keyword\",\"district\":\"Data.boundaryHierarchy.district.keyword\"}",
         "indexName": "project-task-index-v1",
-        "aggrQuery": "{\"size\":0,\"aggs\":{\"AGGS\":{\"filter\":{\"bool\":{\"must\":[{\"match_phrase\":{\"Data.productVariant\":\"PVAR\"}},{\"term\":{\"Data.deliveredTo.keyword\":\"HOUSEHOLD\"}}]}},\"aggs\":{\"Daily Count\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"interval\":\"day\",\"format\":\"dd MMM yyyy\",\"min_doc_count\":1},\"aggs\":{\"Total Households Visited\":{\"value_count\":{\"field\":\"Data.id.keyword\"}}}}}}}}"
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"AGGS\":{\"filter\":{\"bool\":{\"must\":[{\"match_phrase\":{\"Data.productVariant\":\"PVAR\"}},{\"term\":{\"Data.deliveredTo.keyword\":\"HOUSEHOLD\"}}]}},\"aggs\":{\"Daily Count\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"calender_interval\":\"day\",\"format\":\"dd MMM yyyy\",\"min_doc_count\":1},\"aggs\":{\"Total Households Visited\":{\"value_count\":{\"field\":\"Data.id.keyword\"}}}}}}}}"
       },
       {
         "module": "COMMON",
         "dateRefField": "",
         "requestQueryMap": "{\"projectTypeId\":\"Data.projectTypeId.keyword\",\"province\":\"Data.boundaryHierarchy.province.keyword\",\"district\":\"Data.boundaryHierarchy.district.keyword\"}",
         "indexName": "project-task-index-v1",
-        "aggrQuery": "{\"size\":0,\"aggs\":{\"AGGS\":{\"filter\":{\"bool\":{\"must\":[{\"match_phrase\":{\"Data.productVariant\":\"PVAR\"}},{\"term\":{\"Data.deliveredTo.keyword\":\"HOUSEHOLD\"}}]}},\"aggs\":{\"Daily Count\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"interval\":\"day\",\"format\":\"dd MMM yyyy\",\"min_doc_count\":1},\"aggs\":{\"Quantity\":{\"sum\":{\"field\":\"Data.quantity\"}},\"Total Population Covered\":{\"bucket_script\":{\"buckets_path\":{\"target\":\"Quantity\"},\"script\":\"params.target * 1.8\"}}}}}}}}"
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"AGGS\":{\"filter\":{\"bool\":{\"must\":[{\"match_phrase\":{\"Data.productVariant\":\"PVAR\"}},{\"term\":{\"Data.deliveredTo.keyword\":\"HOUSEHOLD\"}}]}},\"aggs\":{\"Daily Count\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"calender_interval\":\"day\",\"format\":\"dd MMM yyyy\",\"min_doc_count\":1},\"aggs\":{\"Quantity\":{\"sum\":{\"field\":\"Data.quantity\"}},\"Total Population Covered\":{\"bucket_script\":{\"buckets_path\":{\"target\":\"Quantity\"},\"script\":\"params.target * 1.8\"}}}}}}}}"
       },
       {
         "module": "COMMON",
         "dateRefField": "",
         "requestQueryMap": "{\"projectTypeId\":\"Data.projectTypeId.keyword\",\"province\":\"Data.boundaryHierarchy.province.keyword\",\"district\":\"Data.boundaryHierarchy.district.keyword\"}",
         "indexName": "project-task-index-v1",
-        "aggrQuery": "{\"size\":0,\"aggs\":{\"AGGS\":{\"filter\":{\"bool\":{\"must\":[{\"match_phrase\":{\"Data.productVariant\":\"PVAR\"}},{\"term\":{\"Data.deliveredTo.keyword\":\"HOUSEHOLD\"}},{\"term\":{\"Data.isDelivered\":true}}]}},\"aggs\":{\"Bednets Total\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"interval\":\"day\",\"format\":\"dd MMM yyyy\",\"min_doc_count\":1},\"aggs\":{\"Total Bednets Distributed\":{\"sum\":{\"field\":\"Data.quantity\"}}}}}}}}"
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"AGGS\":{\"filter\":{\"bool\":{\"must\":[{\"match_phrase\":{\"Data.productVariant\":\"PVAR\"}},{\"term\":{\"Data.deliveredTo.keyword\":\"HOUSEHOLD\"}},{\"term\":{\"Data.isDelivered\":true}}]}},\"aggs\":{\"Bednets Total\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"calender_interval\":\"day\",\"format\":\"dd MMM yyyy\",\"min_doc_count\":1},\"aggs\":{\"Total Bednets Distributed\":{\"sum\":{\"field\":\"Data.quantity\"}}}}}}}}"
       },
       {
         "module": "COMMON",
@@ -20827,14 +20827,14 @@
         "dateRefField": "",
         "requestQueryMap": "{\"projectTypeId\":\"Data.projectTypeId.keyword\",\"province\":\"Data.boundaryHierarchy.province.keyword\",\"district\":\"Data.boundaryHierarchy.district.keyword\"}",
         "indexName": "project-task-index-v1",
-        "aggrQuery": "{\"size\":0,\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.deliveredTo.keyword\":\"HOUSEHOLD\"}},{\"term\":{\"Data.deliveryComments.keyword\":\"Insuficiência de redes\"}}]}},\"aggs\":{\"household count\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"interval\":\"day\",\"format\":\"dd MMM yyyy\",\"min_doc_count\":1},\"aggs\":{\"Household Rejected Delivery Count\":{\"value_count\":{\"field\":\"Data.id.keyword\"}}}}}}}}"
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.deliveredTo.keyword\":\"HOUSEHOLD\"}},{\"term\":{\"Data.deliveryComments.keyword\":\"Insuficiência de redes\"}}]}},\"aggs\":{\"household count\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"calender_interval\":\"day\",\"format\":\"dd MMM yyyy\",\"min_doc_count\":1},\"aggs\":{\"Household Rejected Delivery Count\":{\"value_count\":{\"field\":\"Data.id.keyword\"}}}}}}}}"
       },
       {
         "module": "COMMON",
         "dateRefField": "",
         "requestQueryMap": "{\"projectTypeId\":\"Data.projectTypeId.keyword\",\"province\":\"Data.boundaryHierarchy.province.keyword\",\"district\":\"Data.boundaryHierarchy.district.keyword\"}",
         "indexName": "project-task-index-v1",
-        "aggrQuery": "{\"size\":0,\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.deliveredTo.keyword\":\"HOUSEHOLD\"}},{\"term\":{\"Data.deliveryComments.keyword\":\"Orientação nacional\"}}]}},\"aggs\":{\"household count\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"interval\":\"day\",\"format\":\"dd MMM yyyy\",\"min_doc_count\":1},\"aggs\":{\"Household Relocated Delivery Count\":{\"value_count\":{\"field\":\"Data.id.keyword\"}}}}}}}}"
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.deliveredTo.keyword\":\"HOUSEHOLD\"}},{\"term\":{\"Data.deliveryComments.keyword\":\"Orientação nacional\"}}]}},\"aggs\":{\"household count\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"calender_interval\":\"day\",\"format\":\"dd MMM yyyy\",\"min_doc_count\":1},\"aggs\":{\"Household Relocated Delivery Count\":{\"value_count\":{\"field\":\"Data.id.keyword\"}}}}}}}}"
       }
     ],
     "chartType": "xtable",
@@ -22198,21 +22198,21 @@
         "dateRefField": "",
         "requestQueryMap": "{\"projectTypeId\":\"Data.projectTypeId.keyword\",\"province\":\"Data.boundaryHierarchy.province.keyword\",\"district\":\"Data.boundaryHierarchy.district.keyword\"}",
         "indexName": "project-task-index-v1",
-        "aggrQuery": "{\"size\":0,\"aggs\":{\"AGGS\":{\"filter\":{\"bool\":{\"must\":[{\"match_phrase\":{\"Data.productVariant\":\"PVAR\"}},{\"term\":{\"Data.deliveredTo.keyword\":\"HOUSEHOLD\"}}]}},\"aggs\":{\"Daily Count\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"interval\":\"day\",\"format\":\"dd MMM yyyy\",\"min_doc_count\":1},\"aggs\":{\"Total Households Visited\":{\"value_count\":{\"field\":\"Data.id.keyword\"}}}}}}}}"
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"AGGS\":{\"filter\":{\"bool\":{\"must\":[{\"match_phrase\":{\"Data.productVariant\":\"PVAR\"}},{\"term\":{\"Data.deliveredTo.keyword\":\"HOUSEHOLD\"}}]}},\"aggs\":{\"Daily Count\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"calender_interval\":\"day\",\"format\":\"dd MMM yyyy\",\"min_doc_count\":1},\"aggs\":{\"Total Households Visited\":{\"value_count\":{\"field\":\"Data.id.keyword\"}}}}}}}}"
       },
       {
         "module": "COMMON",
         "dateRefField": "",
         "requestQueryMap": "{\"projectTypeId\":\"Data.projectTypeId.keyword\",\"province\":\"Data.boundaryHierarchy.province.keyword\",\"district\":\"Data.boundaryHierarchy.district.keyword\"}",
         "indexName": "project-task-index-v1",
-        "aggrQuery": "{\"size\":0,\"aggs\":{\"AGGS\":{\"filter\":{\"bool\":{\"must\":[{\"match_phrase\":{\"Data.productVariant\":\"PVAR\"}},{\"term\":{\"Data.deliveredTo.keyword\":\"HOUSEHOLD\"}}]}},\"aggs\":{\"Daily Count\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"interval\":\"day\",\"format\":\"dd MMM yyyy\",\"min_doc_count\":1},\"aggs\":{\"Quantity\":{\"sum\":{\"field\":\"Data.quantity\"}},\"Total Population Covered\":{\"bucket_script\":{\"buckets_path\":{\"target\":\"Quantity\"},\"script\":\"params.target * 1.8\"}}}}}}}}"
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"AGGS\":{\"filter\":{\"bool\":{\"must\":[{\"match_phrase\":{\"Data.productVariant\":\"PVAR\"}},{\"term\":{\"Data.deliveredTo.keyword\":\"HOUSEHOLD\"}}]}},\"aggs\":{\"Daily Count\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"calender_interval\":\"day\",\"format\":\"dd MMM yyyy\",\"min_doc_count\":1},\"aggs\":{\"Quantity\":{\"sum\":{\"field\":\"Data.quantity\"}},\"Total Population Covered\":{\"bucket_script\":{\"buckets_path\":{\"target\":\"Quantity\"},\"script\":\"params.target * 1.8\"}}}}}}}}"
       },
       {
         "module": "COMMON",
         "dateRefField": "",
         "requestQueryMap": "{\"projectTypeId\":\"Data.projectTypeId.keyword\",\"province\":\"Data.boundaryHierarchy.province.keyword\",\"district\":\"Data.boundaryHierarchy.district.keyword\"}",
         "indexName": "project-task-index-v1",
-        "aggrQuery": "{\"size\":0,\"aggs\":{\"AGGS\":{\"filter\":{\"bool\":{\"must\":[{\"match_phrase\":{\"Data.productVariant\":\"PVAR\"}},{\"term\":{\"Data.deliveredTo.keyword\":\"HOUSEHOLD\"}},{\"term\":{\"Data.isDelivered\":true}}]}},\"aggs\":{\"Bednets Total\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"interval\":\"day\",\"format\":\"dd MMM yyyy\",\"min_doc_count\":1},\"aggs\":{\"Total Bednets Distributed\":{\"sum\":{\"field\":\"Data.quantity\"}}}}}}}}"
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"AGGS\":{\"filter\":{\"bool\":{\"must\":[{\"match_phrase\":{\"Data.productVariant\":\"PVAR\"}},{\"term\":{\"Data.deliveredTo.keyword\":\"HOUSEHOLD\"}},{\"term\":{\"Data.isDelivered\":true}}]}},\"aggs\":{\"Bednets Total\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"calender_interval\":\"day\",\"format\":\"dd MMM yyyy\",\"min_doc_count\":1},\"aggs\":{\"Total Bednets Distributed\":{\"sum\":{\"field\":\"Data.quantity\"}}}}}}}}"
       },
       {
         "module": "COMMON",
@@ -22240,14 +22240,14 @@
         "dateRefField": "",
         "requestQueryMap": "{\"projectTypeId\":\"Data.projectTypeId.keyword\",\"province\":\"Data.boundaryHierarchy.province.keyword\",\"district\":\"Data.boundaryHierarchy.district.keyword\"}",
         "indexName": "project-task-index-v1",
-        "aggrQuery": "{\"size\":0,\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.deliveredTo.keyword\":\"HOUSEHOLD\"}},{\"term\":{\"Data.deliveryComments.keyword\":\"Insuficiência de redes\"}}]}},\"aggs\":{\"household count\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"interval\":\"day\",\"format\":\"dd MMM yyyy\",\"min_doc_count\":1},\"aggs\":{\"Household Rejected Delivery Count\":{\"value_count\":{\"field\":\"Data.id.keyword\"}}}}}}}}"
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.deliveredTo.keyword\":\"HOUSEHOLD\"}},{\"term\":{\"Data.deliveryComments.keyword\":\"Insuficiência de redes\"}}]}},\"aggs\":{\"household count\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"calender_interval\":\"day\",\"format\":\"dd MMM yyyy\",\"min_doc_count\":1},\"aggs\":{\"Household Rejected Delivery Count\":{\"value_count\":{\"field\":\"Data.id.keyword\"}}}}}}}}"
       },
       {
         "module": "COMMON",
         "dateRefField": "",
         "requestQueryMap": "{\"projectTypeId\":\"Data.projectTypeId.keyword\",\"province\":\"Data.boundaryHierarchy.province.keyword\",\"district\":\"Data.boundaryHierarchy.district.keyword\"}",
         "indexName": "project-task-index-v1",
-        "aggrQuery": "{\"size\":0,\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.deliveredTo.keyword\":\"HOUSEHOLD\"}},{\"term\":{\"Data.deliveryComments.keyword\":\"Orientação nacional\"}}]}},\"aggs\":{\"household count\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"interval\":\"day\",\"format\":\"dd MMM yyyy\",\"min_doc_count\":1},\"aggs\":{\"Household Relocated Delivery Count\":{\"value_count\":{\"field\":\"Data.id.keyword\"}}}}}}}}"
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.deliveredTo.keyword\":\"HOUSEHOLD\"}},{\"term\":{\"Data.deliveryComments.keyword\":\"Orientação nacional\"}}]}},\"aggs\":{\"household count\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"calender_interval\":\"day\",\"format\":\"dd MMM yyyy\",\"min_doc_count\":1},\"aggs\":{\"Household Relocated Delivery Count\":{\"value_count\":{\"field\":\"Data.id.keyword\"}}}}}}}}"
       }
     ],
     "chartType": "xtable",
