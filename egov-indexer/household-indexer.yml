@@ -33,6 +33,11 @@ ServiceMaps:
           id: $.householdMember.id
           isBulk: true
           jsonPath: $.*
+          customJsonMapping:
+            indexMapping: { "Data": { } }
+            fieldMapping:
+              - inJsonPath: $
+                outJsonPath: $.Data
           timeStampField: $.householdMember.auditDetails.createdTime
     - topic: delete-household-member-topic
       configKey: INDEX
