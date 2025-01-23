@@ -2595,7 +2595,7 @@
         },
         {
           "row": 1,
-          "name": "DSS_HEALTH_REGISTRATION_DELIVERY",
+          "name": "DSS_HEALTH_REGISTRATION_SPRAY",
           "vizArray": [
             {
               "id": 200,
@@ -2619,7 +2619,7 @@
         },
         {
           "row": 2,
-          "name": "DSS_HEALTH_REGISTRATION_DELIVERY",
+          "name": "DSS_HEALTH_REGISTRATION_SPRAY",
           "vizArray": [
             {
               "id": 211,
@@ -2681,7 +2681,7 @@
         },
         {
           "row": 3,
-          "name": "DSS_HEALTH_REGISTRATION_DELIVERY",
+          "name": "DSS_HEALTH_REGISTRATION_SPRAY",
           "vizArray": [
             {
               "id": 213,
@@ -2705,7 +2705,7 @@
         },
         {
           "row": 4,
-          "name": "DSS_HEALTH_REGISTRATION_DELIVERY",
+          "name": "DSS_HEALTH_REGISTRATION_SPRAY",
           "vizArray": [
             {
               "id": 276,
@@ -2767,7 +2767,7 @@
         },
         {
           "row": 5,
-          "name": "DSS_HEALTH_REGISTRATION_DELIVERY",
+          "name": "DSS_HEALTH_REGISTRATION_SPRAY",
           "vizArray": [
             {
               "id": 270,
@@ -2819,7 +2819,7 @@
         },
         {
           "row": 6,
-          "name": "DSS_HEALTH_REGISTRATION_DELIVERY",
+          "name": "DSS_HEALTH_REGISTRATION_SPRAY",
           "vizArray": [
             {
               "id": 272,
@@ -2871,7 +2871,7 @@
         },
         {
           "row": 7,
-          "name": "DSS_HEALTH_REGISTRATION_DELIVERY",
+          "name": "DSS_HEALTH_REGISTRATION_SPRAY",
           "vizArray": [
             {
               "id": 274,
@@ -2923,7 +2923,7 @@
         },
         {
           "row": 8,
-          "name": "DSS_HEALTH_REGISTRATION_DELIVERY",
+          "name": "DSS_HEALTH_REGISTRATION_SPRAY",
           "vizArray": [
             {
               "id": 215,
@@ -2957,7 +2957,7 @@
         },
         {
           "row": 9,
-          "name": "DSS_HEALTH_REGISTRATION_DELIVERY",
+          "name": "DSS_HEALTH_REGISTRATION_SPRAY",
           "vizArray": [
             {
               "id": 216,
@@ -4243,7 +4243,7 @@
         },
         {
           "row": 1,
-          "name": "DSS_HEALTH_REGISTRATION_DELIVERY",
+          "name": "DSS_HEALTH_REGISTRATION_SPRAY",
           "vizArray": [
             {
               "id": 200,
@@ -4267,7 +4267,7 @@
         },
         {
           "row": 2,
-          "name": "DSS_HEALTH_REGISTRATION_DELIVERY",
+          "name": "DSS_HEALTH_REGISTRATION_SPRAY",
           "vizArray": [
             {
               "id": 311,
@@ -4329,7 +4329,7 @@
         },
         {
           "row": 3,
-          "name": "DSS_HEALTH_REGISTRATION_DELIVERY",
+          "name": "DSS_HEALTH_REGISTRATION_SPRAY",
           "vizArray": [
             {
               "id": 313,
@@ -4353,7 +4353,7 @@
         },
         {
           "row": 4,
-          "name": "DSS_HEALTH_REGISTRATION_DELIVERY",
+          "name": "DSS_HEALTH_REGISTRATION_SPRAY",
           "vizArray": [
             {
               "id": 376,
@@ -4415,7 +4415,7 @@
         },
         {
           "row": 5,
-          "name": "DSS_HEALTH_REGISTRATION_DELIVERY",
+          "name": "DSS_HEALTH_REGISTRATION_SPRAY",
           "vizArray": [
             {
               "id": 370,
@@ -4467,7 +4467,7 @@
         },
         {
           "row": 6,
-          "name": "DSS_HEALTH_REGISTRATION_DELIVERY",
+          "name": "DSS_HEALTH_REGISTRATION_SPRAY",
           "vizArray": [
             {
               "id": 372,
@@ -4519,7 +4519,7 @@
         },
         {
           "row": 7,
-          "name": "DSS_HEALTH_REGISTRATION_DELIVERY",
+          "name": "DSS_HEALTH_REGISTRATION_SPRAY",
           "vizArray": [
             {
               "id": 374,
@@ -4571,7 +4571,7 @@
         },
         {
           "row": 8,
-          "name": "DSS_HEALTH_REGISTRATION_DELIVERY",
+          "name": "DSS_HEALTH_REGISTRATION_SPRAY",
           "vizArray": [
             {
               "id": 315,
@@ -4605,7 +4605,7 @@
         },
         {
           "row": 9,
-          "name": "DSS_HEALTH_REGISTRATION_DELIVERY",
+          "name": "DSS_HEALTH_REGISTRATION_SPRAY",
           "vizArray": [
             {
               "id": 316,
