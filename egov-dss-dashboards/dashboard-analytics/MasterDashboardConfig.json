@@ -732,6 +732,32 @@
             }
           ]
         },
+          {
+          "row": 3,
+          "name": "DSS_CUSTOM_CHART",
+          "vizArray": [
+            {
+              "id": 401,
+              "name": "DSS_CUSTOM_CHART_LLIN",
+              "label": "DSS_CUSTOM_CHART_LLIN",
+              "vizType": "chart",
+              "noUnit": true,
+              "isCollapsible": false,
+              "charts": [
+                {
+                  "id": "customChart",
+                  "name": "DSS_HEALTH_CUSTOM_CHART",
+                  "code": "",
+                  "moduleName": "llin",
+                  "pageName": "custom-chart",
+                  "chartType": "kibanaComponent",
+                  "filter": "",
+                  "headers": []
+                }
+              ]
+            }
+          ]
+        },
         {
           "row": 1,
           "name": "DSS_HEALTH_COMPLAINTS",
