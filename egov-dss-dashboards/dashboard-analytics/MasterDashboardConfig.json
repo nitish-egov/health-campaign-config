@@ -732,32 +732,7 @@
             }
           ]
         },
-          {
-          "row": 3,
-          "name": "DSS_CUSTOM_CHART",
-          "vizArray": [
-            {
-              "id": 401,
-              "name": "DSS_CUSTOM_CHART_LLIN",
-              "label": "DSS_CUSTOM_CHART_LLIN",
-              "vizType": "chart",
-              "noUnit": true,
-              "isCollapsible": false,
-              "charts": [
-                {
-                  "id": "customChart",
-                  "name": "DSS_HEALTH_CUSTOM_CHART",
-                  "code": "",
-                  "moduleName": "llin",
-                  "pageName": "custom-chart",
-                  "chartType": "kibanaComponent",
-                  "filter": "",
-                  "headers": []
-                }
-              ]
-            }
-          ]
-        },
+       
         {
           "row": 1,
           "name": "DSS_HEALTH_COMPLAINTS",
@@ -1149,6 +1124,32 @@
                   "name": "DSS_HEALTH_SUPERVISION_DISTRICT_SUPERVISORS_CHECKLISTS_COMPLETION_RATE",
                   "code": "",
                   "chartType": "bar",
+                  "filter": "",
+                  "headers": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "row": 1,
+          "name": "DSS_CUSTOM_CHART",
+          "vizArray": [
+            {
+              "id": 700,
+              "name": "DSS_CUSTOM_CHART_LLIN",
+              "label": "DSS_CUSTOM_CHART_LLIN",
+              "vizType": "chart",
+              "noUnit": true,
+              "isCollapsible": false,
+              "charts": [
+                {
+                  "id": "customChart",
+                  "name": "DSS_HEALTH_CUSTOM_CHART",
+                  "code": "",
+                  "moduleName": "llin",
+                  "pageName": "custom-chart",
+                  "chartType": "kibanaComponent",
                   "filter": "",
                   "headers": []
                 }
@@ -2117,6 +2118,32 @@
                   "name": "DSS_HEALTH_SUPERVISION_DISTRICT_SUPERVISORS_CHECKLISTS_COMPLETION_RATE",
                   "code": "",
                   "chartType": "bar",
+                  "filter": "",
+                  "headers": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "row": 1,
+          "name": "DSS_CUSTOM_CHART",
+          "vizArray": [
+            {
+              "id": 700,
+              "name": "DSS_CUSTOM_CHART_LLIN",
+              "label": "DSS_CUSTOM_CHART_LLIN",
+              "vizType": "chart",
+              "noUnit": true,
+              "isCollapsible": false,
+              "charts": [
+                {
+                  "id": "customChart",
+                  "name": "DSS_HEALTH_CUSTOM_CHART",
+                  "code": "",
+                  "moduleName": "llin",
+                  "pageName": "custom-chart",
+                  "chartType": "kibanaComponent",
                   "filter": "",
                   "headers": []
                 }
@@ -3976,6 +4003,32 @@
               ]
             }
           ]
+        },
+        {
+          "row": 1,
+          "name": "DSS_CUSTOM_CHART",
+          "vizArray": [
+            {
+              "id": 700,
+              "name": "DSS_CUSTOM_CHART_IRS",
+              "label": "DSS_CUSTOM_CHART_IRS",
+              "vizType": "chart",
+              "noUnit": true,
+              "isCollapsible": false,
+              "charts": [
+                {
+                  "id": "customChart",
+                  "name": "DSS_HEALTH_CUSTOM_CHART",
+                  "code": "",
+                  "moduleName": "irs",
+                  "pageName": "custom-chart",
+                  "chartType": "kibanaComponent",
+                  "filter": "",
+                  "headers": []
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -5586,6 +5639,32 @@
                   "name": "DSS_HEALTH_DATA_QUALITY_RECORDS_SUMMARY_AP",
                   "code": "",
                   "chartType": "table",
+                  "filter": "",
+                  "headers": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "row": 1,
+          "name": "DSS_CUSTOM_CHART",
+          "vizArray": [
+            {
+              "id": 700,
+              "name": "DSS_CUSTOM_CHART_IRS",
+              "label": "DSS_CUSTOM_CHART_IRS",
+              "vizType": "chart",
+              "noUnit": true,
+              "isCollapsible": false,
+              "charts": [
+                {
+                  "id": "customChart",
+                  "name": "DSS_HEALTH_CUSTOM_CHART",
+                  "code": "",
+                  "moduleName": "irs",
+                  "pageName": "custom-chart",
+                  "chartType": "kibanaComponent",
                   "filter": "",
                   "headers": []
                 }
@@ -7450,6 +7529,32 @@
               ]
             }
           ]
+        },
+        {
+          "row": 1,
+          "name": "DSS_CUSTOM_CHART",
+          "vizArray": [
+            {
+              "id": 700,
+              "name": "DSS_CUSTOM_CHART_SMC",
+              "label": "DSS_CUSTOM_CHART_SMC",
+              "vizType": "chart",
+              "noUnit": true,
+              "isCollapsible": false,
+              "charts": [
+                {
+                  "id": "customChart",
+                  "name": "DSS_HEALTH_CUSTOM_CHART",
+                  "code": "",
+                  "moduleName": "smc",
+                  "pageName": "custom-chart",
+                  "chartType": "kibanaComponent",
+                  "filter": "",
+                  "headers": []
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -9041,6 +9146,32 @@
                   "name": "DSS_HEALTH_SUMMARY_SIDE_EFFECTS_BY_APS",
                   "code": "",
                   "chartType": "table",
+                  "filter": "",
+                  "headers": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "row": 1,
+          "name": "DSS_CUSTOM_CHART",
+          "vizArray": [
+            {
+              "id": 700,
+              "name": "DSS_CUSTOM_CHART_SMC",
+              "label": "DSS_CUSTOM_CHART_SMC",
+              "vizType": "chart",
+              "noUnit": true,
+              "isCollapsible": false,
+              "charts": [
+                {
+                  "id": "customChart",
+                  "name": "DSS_HEALTH_CUSTOM_CHART",
+                  "code": "",
+                  "moduleName": "smc",
+                  "pageName": "custom-chart",
+                  "chartType": "kibanaComponent",
                   "filter": "",
                   "headers": []
                 }
