@@ -1156,6 +1156,32 @@
               ]
             }
           ]
+        },
+        {
+          "row": 1,
+          "name": "DSS_CUSTOM_DEMO_CHART",
+          "vizArray": [
+            {
+              "id": 700,
+              "name": "DSS_CUSTOM_CHART_LLIN",
+              "label": "DSS_CUSTOM_CHART_LLIN",
+              "vizType": "chart",
+              "noUnit": true,
+              "isCollapsible": false,
+              "charts": [
+                {
+                  "id": "customChart",
+                  "name": "DSS_CUSTOM_DEMO_CHART",
+                  "code": "",
+                  "moduleName": "llin",
+                  "pageName": "demo-chart",
+                  "chartType": "kibanaComponent",
+                  "filter": "",
+                  "headers": []
+                }
+              ]
+            }
+          ]
         }
       ]
     },
