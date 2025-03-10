@@ -539,7 +539,7 @@ serviceMaps:
 
             - jsonPath: $.Plan.auditDetails.lastModifiedTime
 
-        - query: INSERT INTO health.plan_additional_field(id, plan_id, key, value, show_on_ui, editable, "order") VALUES (?, ?, ?, ?, ?, ?, ?) ON CONFLICT (id) DO UPDATE SET value = ?, show_on_ui = ?, editable = ?, "order" = ?;
+        - query: INSERT INTO plan_additional_field(id, plan_id, key, value, show_on_ui, editable, "order") VALUES (?, ?, ?, ?, ?, ?, ?) ON CONFLICT (id) DO UPDATE SET value = ?, show_on_ui = ?, editable = ?, "order" = ?;
           basePath: $.Plan.additionalFields.*
           jsonMaps:
 
