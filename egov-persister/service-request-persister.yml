@@ -150,7 +150,7 @@ serviceMaps:
 
     - version: 1.0
       description: Update Service Definition 
-      fromTopic: update-service-definition-health
+      fromTopic: update-service-definition
       isTransaction: true
       queryMaps:
 
