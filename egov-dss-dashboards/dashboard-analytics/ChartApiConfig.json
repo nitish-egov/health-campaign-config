@@ -32167,41 +32167,110 @@
     "_comment" : ""
   },
   "childrenAdministeredCoverageSmc": {
-    "chartName": "ADMINISTRATION_COVERAGE_TODAY",
+    "chartName": "DSS_HEALTH_SMC_COVERAGE_BY_USER",
     "queries": [
       {
         "module": "COMMON",
         "dateRefField": "Data.createdTime",
-        "requestQueryMap": "{\"projectTypeId\": \"Data.projectTypeId.keyword\"}",
+        "requestQueryMap": "{\"uuid\":\"Data.createdBy.keyword\",\"projectTypeId\": \"Data.projectTypeId.keyword\"}",
         "indexName": "project-task-index-v1",
-        "aggrQuery": "{\"size\":0,\"aggs\":{\"FILTER\":{\"filters\":{\"filters\":{\"ADMIN_SUCCESS\":{\"bool\":{\"must\":[{\"term\":{\"Data.administrationStatus.keyword\":\"ADMINISTRATION_SUCCESS\"}}]}}}},\"aggs\":{\"totalChildrenAdministered\":{\"value_count\":{\"field\":\"Data.taskId.keyword\"}}}}}}"
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"User Name\":{\"terms\":{\"field\":\"Data.nameOfUser.keyword\"},\"aggs\":{\"HouseholdsVisited\":{\"value_count\":{\"field\":\"Data.id.keyword\"}}}}}}"
       },
       {
         "module": "COMMON",
-        "dateRefField": "",
-        "requestQueryMap": "{\"projectTypeId\": \"Data.projectTypeId.keyword\"}",
-        "indexName": "project-index-v1",
-        "aggrQuery": "{\"size\":0,\"aggs\":{\"NAME\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.targetType.keyword\":{\"value\":\"INDIVIDUAL\"}}}],\"must_not\":[{\"exists\":{\"field\":\"Data.boundaryHierarchy.province\"}}]}},\"aggs\":{\"targetPerDay\":{\"sum\":{\"field\":\"Data.targetPerDay\"}}}}}}"
+        "dateRefField": "Data.createdTime",
+        "requestQueryMap": "{\"uuid\":\"Data.createdBy.keyword\",\"projectTypeId\": \"Data.projectTypeId.keyword\"}",
+        "indexName": "project-task-index-v1",
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"FILTER\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.deliveredTo.keyword\":\"INDIVIDUAL\"}},{\"term\":{\"Data.status.keyword\":\"ADMINISTRATION_SUCCESS\"}}]}},\"aggs\":{\"User Name\":{\"terms\":{\"field\":\"Data.nameOfUser.keyword\"},\"aggs\":{\"BeneficiariesDistributed\":{\"value_count\":{\"field\":\"Data.id.keyword\"}},\"NegativeBeneficiariesDistributed\":{\"bucket_script\":{\"buckets_path\":{\"count\":\"BeneficiariesDistributed\"},\"script\":\"params.count*-1\"}}}}}}}}"
+      },
+      {
+        "module": "COMMON",
+        "dateRefField": "Data.createdTime",
+        "requestQueryMap": "{\"uuid\":\"Data.createdBy.keyword\"}",
+        "indexName": "project-task-index-v1",
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"FILTER\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.deliveredTo.keyword\":\"INDIVIDUAL\"}},{\"term\":{\"Data.status.keyword\":\"ADMINISTRATION_SUCCESS\"}}]}},\"aggs\":{\"UserName\":{\"terms\":{\"field\":\"Data.nameOfUser.keyword\"},\"aggs\":{\"BeneficiariesDistributedToday\":{\"sum\":{\"field\":\"Data.quantity\"}},\"NegativeBeneficiariesDistributedToday\":{\"bucket_script\":{\"buckets_path\":{\"count\":\"BeneficiariesDistributedToday\"},\"script\":\"params.count*-1\"}}}}}}}}"
+      },
+      {
+        "module": "COMMON",
+        "dateRefField": "Data.createdTime",
+        "requestQueryMap": "{\"uuid\":\"Data.createdBy.keyword\"}",
+        "indexName": "stock-index-v1",
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"FILTER\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.facilityType.keyword\":\"STAFF\"}},{\"term\":{\"Data.eventType.keyword\":\"RECEIVED\"}}]}},\"aggs\":{\"User Name\":{\"terms\":{\"field\":\"Data.nameOfUser.keyword\"},\"aggs\":{\"Stock count per user\":{\"sum\":{\"field\":\"Data.physicalCount\"}}}}}}}}"
+      },
+      {
+        "module": "COMMON",
+        "dateRefField": "Data.createdTime",
+        "requestQueryMap": "{\"uuid\":\"Data.syncedUserId.keyword\"}",
+        "indexName": "user-sync-index-v1",
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"User Name\":{\"terms\":{\"field\":\"Data.syncedNameOfUser.keyword\"},\"aggs\":{\"Lastsyncedtime\":{\"max\":{\"field\":\"Data.syncedTimeStamp\"}}}}}}"
       }
     ],
-    "chartType": "metric",
-    "valueType": "percentage",
-    "action": "percentage",
+    "filterKeys": [],
+    "chartType": "xtable",
+    "valueType": "number",
     "drillChart": "none",
-    "aggregationPaths": [
-      "totalChildrenAdministered",
-      "targetPerDay"
+    "documentType": "_doc",
+    "action": "",
+    "plotLabel" : "User Name",
+    "excludedColumns": [
+      "NegativeBeneficiariesDistributed", 
+      "NegativeBeneficiariesDistributedToday", 
+      "HouseholdsVisited", 
+      "BeneficiariesDistributed", 
+      "BeneficiariesDistributedToday", 
+      "Stock count per user", 
+      "Lastsyncedtime"
+    ],
+    "computedFields" : [
+      {
+        "postAggregationTheory" : "",
+        "actionName": "AdditiveComputedField",
+        "fields" : ["HouseholdsVisited"],
+        "newField" : "No. of houses visited today",
+        "_comments": ""
+      },
+      {
+        "postAggregationTheory" :"",
+        "actionName": "AdditiveComputedField",
+        "fields" : ["BeneficiariesDistributed"],
+        "newField" : "No. of beneficiaries distributed today",
+        "_comments": ""
+      },
+      {
+        "postAggregationTheory" : "",
+        "actionName": "AdditiveComputedField",
+        "fields" : ["HouseholdsVisited","NegativeBeneficiariesDistributed"],
+        "newField" : "No. of beneficiaries not distributed today",
+        "_comments": ""
+      },
+      {
+        "postAggregationTheory" :"",
+        "actionName": "AdditiveComputedField",
+        "fields" : ["BeneficiariesDistributedToday"],
+        "newField" : "Medicines distributed today",
+        "_comments": ""
+      },
+      {
+        "postAggregationTheory" : "",
+        "actionName": "AdditiveComputedField",
+        "fields" : ["Stock count per user","NegativeBeneficiariesDistributedToday"],
+        "newField" : "No. of remaining medicines",
+        "_comments": ""
+      },
+      {
+        "postAggregationTheory" :"",
+        "actionName": "AdditiveComputedField",
+        "fields" : ["Lastsyncedtime"],
+        "newField" : "Last synced time",
+        "_comments": ""
+      }
     ],
     "insight": {
-      "chartResponseMap": "childrenAdministeredCoverageSmc",
-      "action": "differenceOfNumbers",
-      "upwardIndicator": "positive",
-      "downwardIndicator": "negative",
-      "textMessage": "$indicator$value% than last $insightInterval",
-      "colorCode": "#228B22",
-      "insightInterval": "dateRange"
     },
-    "_comment": ""
+    "sort": "sortKeyAsc",
+    "hideInsights": true,
+    "hideHeaderDenomination": true,
+    "_comment": " "
   },
   "childrenAdministrationSummarySmc": {
     "chartName": "DSS_HEALTH_ADMINISTRATION_SUMMARY",
@@ -32460,42 +32529,111 @@
     "_comment" : ""
   },
  "householdDistributionCoverageLLIN": {
-    "chartName": "DISTRIBUTION_COVERAGE_TODAY",
-    "queries": [
-      {
-        "module": "COMMON",
-        "dateRefField": "Data.createdTime",
-        "requestQueryMap": "{\"projectTypeId\": \"Data.projectTypeId.keyword\"}",
-        "indexName": "project-task-index-v1",
-        "aggrQuery": "{\"size\":0,\"aggs\":{\"FILTER\":{\"filters\":{\"filters\":{\"ADMIN_SUCCESS\":{\"bool\":{\"must\":[{\"term\":{\"Data.administrationStatus.keyword\":\"ADMINISTRATION_SUCCESS\"}}]}}}},\"aggs\":{\"totalHouseholdsDistributed\":{\"value_count\":{\"field\":\"Data.projectBeneficiaryClientReferenceId.keyword\"}}}}}}"
-      },
-      {
-        "module": "COMMON",
-        "dateRefField": "",
-        "requestQueryMap": "{\"projectTypeId\": \"Data.projectTypeId.keyword\"}",
-        "indexName": "project-index-v1",
-        "aggrQuery": "{\"size\":0,\"aggs\":{\"NAME\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.targetType.keyword\":{\"value\":\"HOUSEHOLD\"}}}],\"must_not\":[{\"exists\":{\"field\":\"Data.boundaryHierarchy.province\"}}]}},\"aggs\":{\"targetPerDay\":{\"sum\":{\"field\":\"Data.targetPerDay\"}}}}}}"
-      }
-    ],
-    "chartType": "metric",
-    "valueType": "percentage",
-    "action": "percentage",
-    "drillChart": "none",
-    "aggregationPaths": [
-      "totalHouseholdsDistributed",
-      "targetPerDay"
-    ],
-    "insight": {
-      "chartResponseMap": "householdDistributionCoverage",
-      "action": "differenceOfNumbers",
-      "upwardIndicator": "positive",
-      "downwardIndicator": "negative",
-      "textMessage": "$indicator$value% than last $insightInterval",
-      "colorCode": "#228B22",
-      "insightInterval": "dateRange"
+  "chartName": "DSS_HEALTH_LLIN_COVERAGE_BY_USER",
+  "queries": [
+    {
+      "module": "COMMON",
+      "dateRefField": "Data.createdTime",
+      "requestQueryMap": "{\"uuid\":\"Data.createdBy.keyword\",\"projectTypeId\": \"Data.projectTypeId.keyword\"}",
+      "indexName": "project-task-index-v1",
+      "aggrQuery": "{\"size\":0,\"aggs\":{\"User Name\":{\"terms\":{\"field\":\"Data.nameOfUser.keyword\"},\"aggs\":{\"HouseholdsVisited\":{\"value_count\":{\"field\":\"Data.id.keyword\"}}}}}}"
     },
-    "_comment": ""
+    {
+      "module": "COMMON",
+      "dateRefField": "Data.createdTime",
+      "requestQueryMap": "{\"uuid\":\"Data.createdBy.keyword\",\"projectTypeId\": \"Data.projectTypeId.keyword\"}",
+      "indexName": "project-task-index-v1",
+      "aggrQuery": "{\"size\":0,\"aggs\":{\"FILTER\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.deliveredTo.keyword\":\"HOUSEHOLD\"}},{\"term\":{\"Data.status.keyword\":\"ADMINISTRATION_SUCCESS\"}}]}},\"aggs\":{\"User Name\":{\"terms\":{\"field\":\"Data.nameOfUser.keyword\"},\"aggs\":{\"HouseholdsDistributed\":{\"value_count\":{\"field\":\"Data.id.keyword\"}},\"NegativeHouseholdsDistributed\":{\"bucket_script\":{\"buckets_path\":{\"count\":\"HouseholdsDistributed\"},\"script\":\"params.count*-1\"}}}}}}}}"
+    },
+    {
+      "module": "COMMON",
+      "dateRefField": "Data.createdTime",
+      "requestQueryMap": "{\"uuid\":\"Data.createdBy.keyword\"}",
+      "indexName": "project-task-index-v1",
+      "aggrQuery": "{\"size\":0,\"aggs\":{\"FILTER\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.deliveredTo.keyword\":\"HOUSEHOLD\"}},{\"term\":{\"Data.status.keyword\":\"ADMINISTRATION_SUCCESS\"}}]}},\"aggs\":{\"UserName\":{\"terms\":{\"field\":\"Data.nameOfUser.keyword\"},\"aggs\":{\"BednetsDistributedToday\":{\"sum\":{\"field\":\"Data.quantity\"}},\"NegativeBednetsDistributedToday\":{\"bucket_script\":{\"buckets_path\":{\"count\":\"BednetsDistributedToday\"},\"script\":\"params.count*-1\"}}}}}}}}"
+    },
+    {
+      "module": "COMMON",
+      "dateRefField": "Data.createdTime",
+      "requestQueryMap": "{\"uuid\":\"Data.createdBy.keyword\"}",
+      "indexName": "stock-index-v1",
+      "aggrQuery": "{\"size\":0,\"aggs\":{\"FILTER\":{\"filter\":{\"bool\":{\"must\":[{\"term\":{\"Data.facilityType.keyword\":\"STAFF\"}},{\"term\":{\"Data.eventType.keyword\":\"RECEIVED\"}}]}},\"aggs\":{\"User Name\":{\"terms\":{\"field\":\"Data.nameOfUser.keyword\"},\"aggs\":{\"Stock count per user\":{\"sum\":{\"field\":\"Data.physicalCount\"}}}}}}}}"
+    },
+    {
+      "module": "COMMON",
+      "dateRefField": "Data.createdTime",
+      "requestQueryMap": "{\"uuid\":\"Data.syncedUserId.keyword\"}",
+      "indexName": "user-sync-index-v1",
+      "aggrQuery": "{\"size\":0,\"aggs\":{\"User Name\":{\"terms\":{\"field\":\"Data.syncedNameOfUser.keyword\"},\"aggs\":{\"Lastsyncedtime\":{\"max\":{\"field\":\"Data.syncedTimeStamp\"}}}}}}"
+    }
+  ],
+  "filterKeys": [],
+  "chartType": "xtable",
+  "valueType": "number",
+  "drillChart": "none",
+  "documentType": "_doc",
+  "action": "",
+  "plotLabel" : "User Name",
+  "excludedColumns": [
+    "NegativeBednetsDistributed", 
+    "NegativeBednetsDistributedToday", 
+    "HouseholdsVisited", 
+    "HouseholdsDistributed", 
+    "BednetsDistributedToday", 
+    "Stock count per user", 
+    "Lastsyncedtime"
+  ],
+  "computedFields" : [
+    {
+      "postAggregationTheory" : "",
+      "actionName": "AdditiveComputedField",
+      "fields" : ["HouseholdsVisited"],
+      "newField" : "No. of houses visited today",
+      "_comments": ""
+    },
+    {
+      "postAggregationTheory" :"",
+      "actionName": "AdditiveComputedField",
+      "fields" : ["HouseholdsDistributed"],
+      "newField" : "No. of houses distributed today",
+      "_comments": ""
+    },
+    {
+      "postAggregationTheory" : "",
+      "actionName": "AdditiveComputedField",
+      "fields" : ["HouseholdsVisited","NegativeBednetsDistributed"],
+      "newField" : "No. of houses not distributed today",
+      "_comments": ""
+    },
+    {
+      "postAggregationTheory" :"",
+      "actionName": "AdditiveComputedField",
+      "fields" : ["BednetsDistributedToday"],
+      "newField" : "Bednets distributed today",
+      "_comments": ""
+    },
+    {
+      "postAggregationTheory" : "",
+      "actionName": "AdditiveComputedField",
+      "fields" : ["Stock count per user","NegativeBednetsDistributedToday"],
+      "newField" : "No. of remaining bednets",
+      "_comments": ""
+    },
+    {
+      "postAggregationTheory" :"",
+      "actionName": "AdditiveComputedField",
+      "fields" : ["Lastsyncedtime"],
+      "newField" : "Last synced time",
+      "_comments": ""
+    }
+  ],
+  "insight": {
   },
+  "sort": "sortKeyAsc",
+  "hideInsights": true,
+  "hideHeaderDenomination": true,
+  "_comment": " "
+},
   "householdDistributionSummaryLLIN": {
     "chartName": "HOUSEHOLD_DISTRIBUTION_SUMMARY",
     "queries": [
