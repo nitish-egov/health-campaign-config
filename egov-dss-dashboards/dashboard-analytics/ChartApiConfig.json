@@ -31581,7 +31581,7 @@
         "dateRefField": "Data.createdTime",
         "requestQueryMap": "{\"uuid\":\"Data.createdBy.keyword\",\"projectTypeId\": \"Data.projectTypeId.keyword\"}",
         "indexName": "project-task-index-v1",
-        "aggrQuery": "{\"size\":0,\"aggs\":{\"totalHouseholdSprayed\":{\"value_count\":{\"field\":\"Data.id.keyword\"}}},\"query\":{\"match\":{\"Data.status\":\"ADMINISTERED_SUCCESS\"}}}"
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"totalHouseholdSprayed\":{\"value_count\":{\"field\":\"Data.id.keyword\"}}},\"query\":{\"match\":{\"Data.status\":\"ADMINISTRATION_SUCCESS\"}}}"
       }
     ],
     "chartType": "metric",
@@ -31828,7 +31828,7 @@
         "dateRefField": "Data.createdTime",
         "requestQueryMap": "{\"uuid\":\"Data.createdBy.keyword\",\"projectTypeId\": \"Data.projectTypeId.keyword\"}",
         "indexName": "project-task-index-v1",
-        "aggrQuery": "{\"size\":0,\"aggs\":{\"totalHouseholdSprayed\":{\"value_count\":{\"field\":\"Data.id.keyword\"}}},\"query\":{\"match\":{\"Data.status\":\"ADMINISTERED_SUCCESS\"}}}"
+        "aggrQuery": "{\"size\":0,\"aggs\":{\"totalHouseholdSprayed\":{\"value_count\":{\"field\":\"Data.id.keyword\"}}},\"query\":{\"match\":{\"Data.status\":\"ADMINISTRATION_SUCCESS\"}}}"
       }
     ],
     "chartType": "metric",
