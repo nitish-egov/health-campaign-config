@@ -1156,32 +1156,6 @@
               ]
             }
           ]
-        },
-        {
-          "row": 1,
-          "name": "DSS_CUSTOM_DEMO_CHART",
-          "vizArray": [
-            {
-              "id": 700,
-              "name": "DSS_CUSTOM_CHART_LLIN",
-              "label": "DSS_CUSTOM_CHART_LLIN",
-              "vizType": "chart",
-              "noUnit": true,
-              "isCollapsible": false,
-              "charts": [
-                {
-                  "id": "customChart",
-                  "name": "DSS_CUSTOM_DEMO_CHART",
-                  "code": "",
-                  "moduleName": "llin",
-                  "pageName": "demo-chart",
-                  "chartType": "kibanaComponent",
-                  "filter": "",
-                  "headers": []
-                }
-              ]
-            }
-          ]
         }
       ]
     },
@@ -2049,15 +2023,15 @@
           "vizArray": [
             {
               "id": 243,
-              "name": "DSS_HEALTH_INVENTORY_SUMMARY_BY_DISTRICT",
-              "label": "DSS_HEALTH_INVENTORY_SUMMARY_BY_DISTRICT",
+              "name": "DSS_HEALTH_INVENTORY_SUMMARY",
+              "label": "DSS_HEALTH_INVENTORY_SUMMARY",
               "vizType": "chart",
               "noUnit": true,
               "isCollapsible": false,
               "charts": [
                 {
-                  "id": "InventorySummaryByDistrictLLIN",
-                  "name": "DSS_HEALTH_INVENTORY_SUMMARY_BY_DISTRICT",
+                  "id": "InventorySummaryByApLLIN",
+                  "name": "DSS_HEALTH_INVENTORY_SUMMARY_BY_AP",
                   "code": "",
                   "chartType": "table",
                   "filter": "",
@@ -3853,13 +3827,7 @@
                   "headers": []
                 }
               ]
-            }
-          ]
-        },
-        {
-          "row": 2,
-          "name": "DSS_HEALTH_DATA_QUALITY",
-          "vizArray": [
+            },
             {
               "id": 2103,
               "name": "DSS_HOUSE_WITH_MORE_THAN_TWENTY_MEMBERS",
@@ -3877,7 +3845,13 @@
                   "headers": []
                 }
               ]
-            },
+            }
+          ]
+        },
+        {
+          "row": 2,
+          "name": "DSS_HEALTH_DATA_QUALITY",
+          "vizArray": [
             {
               "id": 2104,
               "name": "DSS_HEALTH_MORE_THAN_TWO_BOTTLES_USED",
@@ -3889,30 +3863,6 @@
                 {
                   "id": "moreThanTwoBottlesUsedByDistrictIRS",
                   "name": "DSS_HEALTH_MORE_THAN_TWO_BOTTLES_USED_DISTRICT",
-                  "code": "",
-                  "chartType": "bar",
-                  "filter": "",
-                  "headers": []
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "row": 3,
-          "name": "DSS_HEALTH_DATA_QUALITY",
-          "vizArray": [
-            {
-              "id": 2105,
-              "name": "DSS_HEALTH_LOCATION_NOT_ENABLED",
-              "label": "DSS_HEALTH_LOCATION_NOT_ENABLED",
-              "vizType": "chart",
-              "noUnit": true,
-              "isCollapsible": false,
-              "charts": [
-                {
-                  "id": "locationNotEnabledByDistrictIRS",
-                  "name": "DSS_HEALTH_LOCATION_NOT_ENABLED_DISTRICT",
                   "code": "",
                   "chartType": "bar",
                   "filter": "",
@@ -3941,7 +3891,7 @@
           ]
         },
         {
-          "row": 4,
+          "row": 3,
           "name": "DSS_HEALTH_DATA_QUALITY",
           "vizArray": [
             {
@@ -3983,7 +3933,7 @@
           ]
         },
         {
-          "row": 5,
+          "row": 4,
           "name": "DSS_HEALTH_DATA_QUALITY",
           "vizArray": [
             {
@@ -4007,7 +3957,7 @@
           ]
         },
         {
-          "row": 6,
+          "row": 5,
           "name": "DSS_HEALTH_DATA_QUALITY",
           "vizArray": [
             {
@@ -5495,13 +5445,7 @@
                   "headers": []
                 }
               ]
-            }
-          ]
-        },
-        {
-          "row": 2,
-          "name": "DSS_HEALTH_DATA_QUALITY",
-          "vizArray": [
+            },
             {
               "id": 3103,
               "name": "DSS_HOUSE_WITH_MORE_THAN_TWENTY_MEMBERS",
@@ -5519,7 +5463,13 @@
                   "headers": []
                 }
               ]
-            },
+            }
+          ]
+        },
+        {
+          "row": 2,
+          "name": "DSS_HEALTH_DATA_QUALITY",
+          "vizArray": [
             {
               "id": 3104,
               "name": "DSS_HEALTH_MORE_THAN_TWO_BOTTLES_USED",
@@ -5531,30 +5481,6 @@
                 {
                   "id": "moreThanTwoBottlesUsedByAPIRS",
                   "name": "DSS_HEALTH_MORE_THAN_TWO_BOTTLES_USED_AP",
-                  "code": "",
-                  "chartType": "bar",
-                  "filter": "",
-                  "headers": []
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "row": 3,
-          "name": "DSS_HEALTH_DATA_QUALITY",
-          "vizArray": [
-            {
-              "id": 3105,
-              "name": "DSS_HEALTH_LOCATION_NOT_ENABLED",
-              "label": "DSS_HEALTH_LOCATION_NOT_ENABLED",
-              "vizType": "chart",
-              "noUnit": true,
-              "isCollapsible": false,
-              "charts": [
-                {
-                  "id": "locationNotEnabledByAPIRS",
-                  "name": "DSS_HEALTH_LOCATION_NOT_ENABLED_AP",
                   "code": "",
                   "chartType": "bar",
                   "filter": "",
@@ -5583,7 +5509,7 @@
           ]
         },
         {
-          "row": 4,
+          "row": 3,
           "name": "DSS_HEALTH_DATA_QUALITY",
           "vizArray": [
             {
@@ -5625,7 +5551,7 @@
           ]
         },
         {
-          "row": 5,
+          "row": 4,
           "name": "DSS_HEALTH_DATA_QUALITY",
           "vizArray": [
             {
@@ -5649,7 +5575,7 @@
           ]
         },
         {
-          "row": 6,
+          "row": 5,
           "name": "DSS_HEALTH_DATA_QUALITY",
           "vizArray": [
             {
@@ -7332,30 +7258,6 @@
                   "headers": []
                 }
               ]
-            }
-          ]
-        },
-        {
-          "row": 3,
-          "name": "DSS_HEALTH_DATA_QUALITY",
-          "vizArray": [
-            {
-              "id": 2105,
-              "name": "DSS_HEALTH_LOCATION_NOT_ENABLED",
-              "label": "DSS_HEALTH_LOCATION_NOT_ENABLED",
-              "vizType": "chart",
-              "noUnit": true,
-              "isCollapsible": false,
-              "charts": [
-                {
-                  "id": "locationNotEnabledByDistrictSMC",
-                  "name": "DSS_HEALTH_LOCATION_NOT_ENABLED_DISTRICT",
-                  "code": "",
-                  "chartType": "bar",
-                  "filter": "",
-                  "headers": []
-                }
-              ]
             },
             {
               "id": 2107,
@@ -7378,7 +7280,7 @@
           ]
         },
         {
-          "row": 4,
+          "row": 3,
           "name": "DSS_HEALTH_DATA_QUALITY",
           "vizArray": [
             {
@@ -7420,7 +7322,7 @@
           ]
         },
         {
-          "row": 6,
+          "row": 4,
           "name": "DSS_HEALTH_DATA_QUALITY",
           "vizArray": [
             {
@@ -7572,7 +7474,7 @@
                   "id": "customChart",
                   "name": "DSS_HEALTH_CUSTOM_CHART",
                   "code": "",
-                  "moduleName": "smc",
+                  "moduleName": "llin",
                   "pageName": "custom-chart",
                   "chartType": "kibanaComponent",
                   "filter": "",
@@ -8955,30 +8857,6 @@
                   "headers": []
                 }
               ]
-            }
-          ]
-        },
-        {
-          "row": 3,
-          "name": "DSS_HEALTH_DATA_QUALITY",
-          "vizArray": [
-            {
-              "id": 3105,
-              "name": "DSS_HEALTH_LOCATION_NOT_ENABLED",
-              "label": "DSS_HEALTH_LOCATION_NOT_ENABLED",
-              "vizType": "chart",
-              "noUnit": true,
-              "isCollapsible": false,
-              "charts": [
-                {
-                  "id": "locationNotEnabledByAPSMC",
-                  "name": "DSS_HEALTH_LOCATION_NOT_ENABLED_AP",
-                  "code": "",
-                  "chartType": "bar",
-                  "filter": "",
-                  "headers": []
-                }
-              ]
             },
             {
               "id": 3107,
@@ -9001,7 +8879,7 @@
           ]
         },
         {
-          "row": 4,
+          "row": 3,
           "name": "DSS_HEALTH_DATA_QUALITY",
           "vizArray": [
             {
@@ -9043,7 +8921,7 @@
           ]
         },
         {
-          "row": 6,
+          "row": 4,
           "name": "DSS_HEALTH_DATA_QUALITY",
           "vizArray": [
             {
@@ -9195,7 +9073,7 @@
                   "id": "customChart",
                   "name": "DSS_HEALTH_CUSTOM_CHART",
                   "code": "",
-                  "moduleName": "smc",
+                  "moduleName": "llin",
                   "pageName": "custom-chart",
                   "chartType": "kibanaComponent",
                   "filter": "",
